@@ -31,19 +31,19 @@ A Powerful multipurpose Discord Bot with over than 100+ commands!
 
 ### Links
 
-* [Support Server](https://discord.gg/8HKHXbz)
-* [Youtube Channel](https://www.youtube.com/channel/UCF9E-xef9jL9QgziZRDHKKQ)
+* [Support Server](https://discord.gg/NZwwSUx8es)
+* [Youtube Channel](https://www.youtube.com/channel/UCpLctSYrYYQm58ul219kMwg)
 
 
 
-#### **This Moderation bot was created by 0_0#6666**
+#### **This Moderation bot was created by 𝙁𝘾 么 Glitch Editz#5631**
 _To set up your bot please head to .env and follow the steps as mentioned in video!_
-**This bot is fully customisable join https://discord.gg/8HKHXbz for support and other questions**
+**This bot is fully customisable join [Server](https://discord.gg/NZwwSUx8es) for support and other questions**
 
 
 
 **NOTE
 `` THIS BOT DIES IF YOU DON'T USE IT EVERY 5 MINUTES CAN BE EASILY RE-HOSTED BY REGENERATING THE TOKEN AND REPPLACING IT 
-IF YOU WANT A SCRIPT THAT PREVENTS THIS JOIN THE SERVER ABOVE AND DM 0_0#6666 THIS MIGHT GET YOUR PROJECT SUSPENDED BUT YOU CAN ALWAYS
+IF YOU WANT A SCRIPT THAT PREVENTS THIS JOIN THE SERVER ABOVE AND DM 𝙁𝘾 么 Glitch Editz#5631 THIS MIGHT GET YOUR PROJECT SUSPENDED BUT YOU CAN ALWAYS
 MAKE A NEW ONE USING MY TUTORIAL :D``**
 
