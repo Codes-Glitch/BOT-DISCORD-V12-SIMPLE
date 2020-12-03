@@ -37,19 +37,19 @@ module.exports = class extends BaseCommand {
         let status = user.presence.status;
         switch (status) {
             case 'online': {
-                status = `${await client.getEmoji('online')} Online`;
+                status = `🟢 Online`;
                 break;
             }
             case 'idle': {
-                status = `${await client.getEmoji('idle')} Idle`;
+                status = `🌙 Idle`;
                 break;
             }
             case 'dnd': {
-                status = `${await client.getEmoji('dnd')} Do not Disturb`;
+                status = `⛔ Do not Disturb`;
                 break;
             }
             case 'offline': {
-                status = `${await client.getEmoji('offline')} Offline`;
+                status = `⭕ Offline`;
                 break;
             }
         }
@@ -58,7 +58,7 @@ module.exports = class extends BaseCommand {
         return message.channel.send(new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setThumbnail(user.displayAvatarURL({ dynamic: true }))
-            .addField(`${user.bot ? 'Bot' : 'User'} Info`, `${user.tag} / ${user.id}`)
+            .addField(`${user.bot ? 'Bot' : 'User'} Info`, `${user.tag} /n ID: ${user.id}`)
             .addField(`Joined Server`, member.joinedAt.toUTCString(), true)
             .addField(`Created At`, user.createdAt.toUTCString(), true)
             .addField('\u200b', '\u200b', true)

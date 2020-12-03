@@ -26,6 +26,7 @@ category.set(
 );
 category.set("search", "Searching commands!");
 category.set("staff", "Bot Staff Commands ONLY!");
+category.set("info", "Bot Invite Commands");
 
 module.exports = class extends BaseCommand {
   constructor() {
@@ -154,28 +155,29 @@ module.exports = class extends BaseCommand {
         .setColor(0x00ffff)
         .setTitle("Commands")
         .setDescription(
-          `Join our [Support Server](${client.unicron.serverInviteURL}) for help and updates!\n\`\`\`xl\n${prefix}help [Category]\n\`\`\``
+          `🛡️ Join our for help and updates!\n\`\`\`xl\n${prefix}help [Category]\n\`\`\``
         )
         .addField(
-          `${await client.getEmoji("staff")} Moderation`,
+          `⚙️ Moderation`,
           `\`moderation\``,
           true
         )
         .addField(
-          `${await client.getEmoji("settings")} Settings`,
+          `🔧 Settings`,
           `\`settings\``,
           true
         )
         .addField(`🎫 Ticket System`, `\`ticket\``, true)
         .addField(`♾️ Dynamic Text/Voice`, `\`dynamic\``, true)
         .addField(
-          ` Utility`,
+          `📜 Utility`,
           `\`utility\``,
           true
         )
         .addField(`🔍 Search`, `\`search\``, true)
         .addField(` Misc`, `\`misc\``, true)
         .addField("😂 Fun", `\`fun\``, true)
+        .addField("💠 Support", `\`info\``, true)
         .setTimestamp()
     );
   }
