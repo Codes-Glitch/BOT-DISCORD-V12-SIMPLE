@@ -32,10 +32,10 @@ module.exports = class extends BaseCommand {
     async run(client, message, args) {
         return message.channel.send(new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .setAuthor(`${message.guild.name} / ${message.guild.id}`)
+            .setAuthor(`SERVER NAME: \n${message.guild.name} \nSERVER ID:\n${message.guild.id}`)
             .setImage(message.guild.splash ? message.guild.splashURL() : null)
             .setThumbnail(message.guild.icon ? message.guild.iconURL() : `https://dummyimage.com/128/7289DA/FFFFFF/&text=${encodeURIComponent(message.guild.nameAcronym)}`)
-            .addField('Owner', `${message.guild.owner.user.tag} / ${message.guild.ownerID}`)
+            .addField('Owner', `Name: ${message.guild.owner.user.tag} /\nID: ${message.guild.ownerID}`)
             .addField('Created At', message.guild.createdAt.toUTCString())
             .addField('Region', message.guild.region.toUpperCase(), true)
             .addField('Members', message.guild.memberCount, true)
