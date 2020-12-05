@@ -1,4 +1,4 @@
-
+const Discord = require('discord.js');
 const { Message } = require('discord.js');
 const Client = require('../../classes/Unicron');
 const BaseCommand = require('../../classes/BaseCommand');
@@ -7,18 +7,15 @@ module.exports = class extends BaseCommand {
     constructor() {
         super({
             config: {
-                name: 'invite',
-                description: 'Invite Your Bot',
+                name: 'prefix',
+                description: 'Shows Unicron\'s prefix for this server.',
                 permission: 'User',
             },
             options: {
-                aliases: [],
-                clientPermissions: ["EMBED_LINKS"],
-                cooldown: 10,
-                nsfwCommand: false,
-                args: true,
+                cooldown: 3,
+                args: false,
+                usage: '',
                 donatorOnly: false,
-                premiumServer: false,
             }
         });
     }
@@ -29,6 +26,10 @@ module.exports = class extends BaseCommand {
      * @param {Array<string>} args 
      */
     async run(client, message, args) {
-        return message.channel.send("You must set your bot invite\nFile Located in: src/commands/info/invite.js");
+        const prefix = message.guild.db.settings('prefix');
+        return message.channel.send(new Discord.MessageEmbed()
+            .setColor(0x00FFFF)
+            .setDescription(`)
+        );
     }
 }
