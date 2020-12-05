@@ -29,7 +29,8 @@ module.exports = class extends BaseCommand {
         const prefix = message.guild.db.settings('prefix');
         return message.channel.send(new Discord.MessageEmbed()
             .setColor(0x00FFFF)
-            .setDescription(`)
+            .setDescription(`You must set your bot invite\nFile Located in: src/commands/info/invite.js`)
+            .setDescription(`[text](https://discord.gg/hyDVvu4)`)
         );
     }
 }
