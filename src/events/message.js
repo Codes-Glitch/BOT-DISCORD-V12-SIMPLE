@@ -132,7 +132,7 @@ ${command.options.clientPermissions.join(' ')}
                 return message.channel.send(new MessageEmbed()
                     .setColor('RED')
                     .setTimestamp()
-                    .setDescription(` ${await client.getEmoji('slowmode')} Please wait **${ms(timeLeft)}** before reusing the command again.`)
+                    .setDescription(`<a:boost1:774531201565851678> Please wait **${ms(timeLeft)}** before reusing the command again.`)
                 );
             }
         }
