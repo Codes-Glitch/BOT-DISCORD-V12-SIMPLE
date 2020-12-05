@@ -7,15 +7,18 @@ module.exports = class extends BaseCommand {
     constructor() {
         super({
             config: {
-                name: 'prefix',
-                description: 'Shows Unicron\'s prefix for this server.',
+                name: 'invite',
+                description: 'Invite Your Bot',
                 permission: 'User',
             },
             options: {
-                cooldown: 3,
-                args: false,
-                usage: '',
+                aliases: [],
+                clientPermissions: ["EMBED_LINKS"],
+                cooldown: 10,
+                nsfwCommand: false,
+                args: true,
                 donatorOnly: false,
+                premiumServer: false,
             }
         });
     }
