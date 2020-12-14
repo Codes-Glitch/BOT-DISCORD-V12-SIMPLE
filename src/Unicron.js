@@ -15,7 +15,13 @@ const client = new Unicron();
     client.user.setActivity(status[Math.floor(Math.random() * status.length)], {type:"WATCHING"})
   }, 5000)
   
-  
+  const fetch = require('node-fetch')
+
+setInterval(async () => {
+
+  await fetch('Your glitch project live page URL here').then(console.log('Pinged!'))
+
+}, 240000)
   
     await client.login(process.env.BOT_TOKEN);
 })();
