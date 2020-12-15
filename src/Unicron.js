@@ -8,7 +8,7 @@ const client = new Unicron();
     await client.registerEvents('../events/');
   const status = [
     `${client.guilds.cache.size} Server | ${client.users.cache.size} User `,
-    `Made By 𝙁𝘾 么 Glitch Editz#5631`
+    `Made By 𝙁𝘾 么 Glitch Editz#5631`,
     `to set status Go to file : src/Unicron.js`//can add another
   ]
   setInterval(() => {
