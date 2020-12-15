@@ -30,6 +30,8 @@ module.exports = class extends BaseCommand {
      * @param {Array<string>} args 
      */
     async run(client, message, args) {
-        return message.channel.send((args.join(' '), ``+ args[0]));
-    }
+         var sayMessage = args.join(' ');
+	message.delete().catch(O_o=>{}); // eslint-disable-line
+	message.channel.send(sayMessage);
+}
 }
