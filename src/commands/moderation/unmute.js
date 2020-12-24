@@ -64,7 +64,7 @@ module.exports = class extends BaseCommand {
         if (!role) {
             role = await message.guild.roles.create({
                 name: 'Muted'
-            }, 'Mute');
+            }, 'Muted');
         }
         try {
             member.roles.remove(role, reason.join(' '));
