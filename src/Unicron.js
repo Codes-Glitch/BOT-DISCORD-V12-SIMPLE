@@ -6,15 +6,16 @@ const client = new Unicron();
     await client.registerItems('../items/');
     await client.registerCommands('../commands/');
     await client.registerEvents('../events/');
-  const status = [
-    `${client.guilds.cache.size} Server | ${client.users.cache.size} User `,
-    `Made By 𝙁𝘾 么 Glitch Editz#5631`,
-    `to set status Go to file : src/Unicron.js`//can add another
-  ]
-  setInterval(() => {
-    client.user.setActivity(status[Math.floor(Math.random() * status.length)], {type:"WATCHING"})
-  }, 5000)
-  
+  client.on("ready", () => {
+  client.user.setStatus("idle");
+  client.user.setActivity(
+    `\n\n${client.guilds.cache.size} Server | ${client.users.cache.size} User \nMade By FC ä¹ˆ Glitch Editz `,
+    {
+      type: "WATCHING"
+    }
+  );
+  console.log(`Hi, ${client.user.username} is now online!`);
+});
   const fetch = require('node-fetch')
 
 setInterval(async () => {
