@@ -2,7 +2,7 @@ const db = require("quick.db")
 const discord = require("discord.js")
 
 module.exports = {
-  name: "setssmsg",
+  name: "setss",
   description: "",
   usage: "setssmsg <channel> do not use `#`",
   category: "settings",
@@ -21,11 +21,10 @@ module.exports = {
     
     //Now we gonna use quick.db
     
-    db.set(`welchannel_${message.guild.id}`, channel.id)
     
   
- db.set(`inbot`, channel.id)
-   await message.channel.send(`message level has been set channel ${channel}\nCommand is loading 10s`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
+ db.set(`inbot_${message.guild.id}`, channel.id)
+      await message.channel.send(`message level has been set channel ${channel}\nCommand is loading 10s`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
     process.exit(1);
     
   }
