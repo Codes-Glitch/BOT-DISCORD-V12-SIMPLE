@@ -9,13 +9,13 @@ module.exports = {
    message.delete();
   //  let annel = message.guild.channels.cache.find((x) => (x.name === ``))
  const db = require("quick.db");
-
-  let channel = message.guild.channels.cache.find(x => x.name === db.get(`inbot`));
-
+  const msgg = args.join(" ");
+  
+  let channel =  message.guild.channels.cache.find(x => x.id === db.get(`inbot`));
+if (!msgg) return message.channel.send(" ");
+    
  message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
-
- 
-    const msgg = args.join(" ");
+    
    const ar = args
     if (!msgg) return message.channel.send("Please Give ID Bot");
     if (msgg.length > 18) return message.channel.send("<a:failed:798526823976796161> Too Long ID - 18 Limit");
@@ -32,6 +32,6 @@ module.exports = {
 
  
   
-     }
+     }}
 
-};
+;
