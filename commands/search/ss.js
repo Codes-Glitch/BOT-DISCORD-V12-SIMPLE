@@ -18,7 +18,7 @@ module.exports = {
     
     const urls = args[0];
     if(!urls)return message.reply("```\nwhere is the link -_\n```")
-      if(!urls < 8) return message.reply('<a:failed:798526823976796161> https is too short to reach - 8 limit').then(m=>m.delete({timeout:9000}).catch(e=>{}))
+    //  if(urls < 8) return message.reply('<a:failed:798526823976796161> https is too short to reach - 8 limit').then(m=>m.delete({timeout:9000}).catch(e=>{}))
    
      
      
