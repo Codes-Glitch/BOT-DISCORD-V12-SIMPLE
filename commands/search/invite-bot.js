@@ -4,7 +4,7 @@ module.exports = {
   name: "inbot",
   category: "search",
   description: "Get bot link invite",
-  usage: "ping",
+  usage: "inbot",
   run: async (client, message, args, msss) => {
    message.delete();
   //  let annel = message.guild.channels.cache.find((x) => (x.name === ``))
@@ -12,12 +12,12 @@ module.exports = {
   const msgg = args.join(" ");
   
   let channel =  message.guild.channels.cache.find(x => x.id === db.get(`inbot`));
-  if (!msgg) return message.channel.send("Please Give ID Bot");
+  if (!msgg) return message.channel.send("<a:failed:798526823976796161> Please Give ID Bot");
       
   await message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
     
    const ar = args
-    if (!msgg) return message.channel.send("Please Give ID Bot");
+    if (!msgg) return message.channel.send("<a:failed:798526823976796161> Please Give ID Bot");
     if (msgg.length > 18) return message.channel.send("<a:failed:798526823976796161> Too Long ID - 18 Limit");
     if (isNaN(msgg))return message.reply("<a:failed:798526823976796161> This is not an ID")  
   //await message.channel.send("Check Channel")
