@@ -1,49 +1,32 @@
-Note: this bot wont be receiving any "source code" updates except for documentations
+# Information
 
-## Bot 
+A Advanced Music Bot With Filters & Other Cool Stuff ;)
 
-A Powerful multipurpose Discord Bot with over than 100+ commands!
+- Filters (Nightcore, Bassboost, Flanger, Etc)
+- Easy To Use & Manage
 
-> Feel free to add a subscribe to the channel to promote the Bot and the project iteself!
+### Setup
 
-### Features
+- Download / Export This Repository & Make Sure To Install [Node.js](https://nodejs.org/en/) & [Visual Studio Code (Only If You Don't Have Any Code Editor)](https://code.visualstudio.com/)
+- Open Project In Visual Studio Code (Editor) & To Open Console / Terminal - **Ctrl + A**
+- In Your Project Terminal / Console Type This - **npm i**
+- And Wait For Them (Packages) To Install...
+- After Installing Done, Go To Config.js And
+- Fill Information & After That Type This In Your Terminal / Console - **_node ._** Or **_node server.js_**
+- When Bot Is Ready, You Will See A Message In Console
+- Enjoy <3
 
-0_0Bot offers:
+### Credits
 
-* Server Configuration \(prefix, welcomer, farewell etc...\)
-* Member Captcha Verification System
-* Simple Ticket System - 
-* Dynamic Text/Voice - Which allows users to create their own text/voice Channels to enhance your community environment as your users continue to meet new people.
-* High Performance Moderation System + Auto-Moderation
-* and more!
+- [Github (Filters :D)](https://github.com)
+- [Stackoverflow (Lyrics)](https://stackoverflow.com)
+- [Node Package Manager (Discord.js, Etc)](https://www.npmjs.com/)
+- [Google (Friend)](https://google.com)
 
-#### Many Commands \(yes\)
+### Other
 
-> It has alot of commands reaching 100+ split into 9 categories!
->
-> * 🚓 **Moderation**
-> * ⚙️ **Configuration** 
-> * 🖨️ **Miscellaneous**
-> * 🗳️ **Ticket System**
-> * 🎵 **Dynamic Text/Voice**
-> * 👻 **Fun**
-> * and more!
+Note: I Will Get Your Ass If You Ever Say **This Is My Bot & Coded By Me Or Smth**, Make Sure To Give Credit (In Bot Or Commands) :D
 
-### Links
-
-* [Support Server](https://discord.gg/NZwwSUx8es)
-* [Youtube Channel](https://www.youtube.com/channel/UCpLctSYrYYQm58ul219kMwg)
-
-
-
-#### **This Moderation bot was created by 𝙁𝘾 么 Glitch Editz#5631**
-_To set up your bot please head to .env and follow the steps as mentioned in video!_
-**This bot is fully customisable join [Server](https://discord.gg/NZwwSUx8es) for support and other questions**
-
-
-
-**NOTE
-`` THIS BOT DIES IF YOU DON'T USE IT EVERY 5 MINUTES CAN BE EASILY RE-HOSTED BY REGENERATING THE TOKEN AND REPPLACING IT 
-IF YOU WANT A SCRIPT THAT PREVENTS THIS JOIN THE SERVER ABOVE AND DM 𝙁𝘾 么 Glitch Editz#5631 THIS MIGHT GET YOUR PROJECT SUSPENDED BUT YOU CAN ALWAYS
-MAKE A NEW ONE USING MY TUTORIAL :D``**
-
+- Author - 𝙁𝘾 么 Glitch Editz#5631 
+- Support - [Click Me](https://discord.gg/3yQ7UaSwjy)
+- License - [Mit](https://github.com/Failpfailp/BOT-MUSIC-/)
