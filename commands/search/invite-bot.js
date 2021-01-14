@@ -8,11 +8,17 @@ module.exports = {
   run: async (client, message, args, msss) => {
    message.delete();
   //  let annel = message.guild.channels.cache.find((x) => (x.name === ``))
- const db = require("quick.db");
+    async member => {
+    let channel = db.get(`inbot_${member.guild.id}`);
 
-  let channel = message.guild.channels.cache.find(x => x.name === db.get(`inbot`));
+  if (channel === null) {
+    return;
+  }
+  
+const mss = client.channels.cache.get(channel).send
+ 
 
- message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
+  message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
 
  
     const msgg = args.join(" ");
@@ -24,7 +30,7 @@ module.exports = {
   //return message.channel.send("Check Channel")
    
     //await message.channel.send("Check Channel")
- return channel.send(`<a:success:798526789114134548> the Bot link is [Clink di sini](https://discord.com/oauth2/authorize?client_id=${ar}&scope=bot&permissions=8)`).then(m => {
+ return mss.send(`<a:success:798526789114134548> the Bot link is [Clink di sini](https://discord.com/oauth2/authorize?client_id=${ar}&scope=bot&permissions=8)`).then(m => {
       m.react("✅")
       m.react("❌")
     })
@@ -32,6 +38,6 @@ module.exports = {
 
  
   
-     }
+    } }
 
 };
