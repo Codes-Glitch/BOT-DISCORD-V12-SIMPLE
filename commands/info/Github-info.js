@@ -12,11 +12,6 @@ module.exports = {
     description: `Github User Account Information!`,
     run: async (client, message, args, cha) => {
       message.delete();
-      const db = require("quick.db");
-
-  let chan = message.guild.channels.cache.find(x => x.name === db.get(`help`));
-
- message.channel.send(`Check Channel ${cha || `<a:failed:798526823976796161> Failed to Send` }`)
       try {
   if (!args[0]) return message.channel.send(`Please Give Me A Username!`)
   fetch(`https://api.github.com/users/${args.join('-')}`)
@@ -37,7 +32,7 @@ module.exports = {
             .addField(`Account Created`, moment.utc(created_at).format("dddd, MMMM, Do YYYY"))
             .setFooter(`Tysm For Using Me! ${message.author.username}`)
 
-            chan.send(embed).then(m => {
+            message.channel.send(embed).then(m => {
 
       m.react("✅")
 

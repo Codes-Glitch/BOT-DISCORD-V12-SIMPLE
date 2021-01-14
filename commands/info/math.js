@@ -12,13 +12,6 @@ module.exports = {
 
   run: async (client, message, args) => {
 message.delete();
-   const db = require("quick.db");
-
-  let channel = message.guild.channels.cache.find(x => x.name === db.get(`help`));
-
- message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
-
- 
     
     try {
 
@@ -34,11 +27,11 @@ message.delete();
 
         .setTimestamp();
 
-      channel.send(embed);
+      message.channel.send(embed);
 
     } catch (error) {
 
-      channel.send(`Please Give Me Valid Equation | Try Again Later!`).then(() => console.log(error));
+      message.channel.send(`Please Give Me Valid Equation | Try Again Later!`).then(() => console.log(error));
   
       return message.reply(
 

@@ -9,9 +9,6 @@ module.exports = {
   run: (client, message, args) => {
  
    message.delete();
-    
-   let channel = message.guild.channels.cache.find(x => x.name === db.get(`mwa`));
- message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
     const user = message.mentions.users.first() || message.author;
     
     if(user.id === client.user.id) { //IF BOT
@@ -35,7 +32,7 @@ module.exports = {
 **XP** - ${remxp}/${levelxp}`)
 // await message.channel.send("h")
    
-return channel.send(embed)   
+return message.channel.send(embed)   
     
     
     

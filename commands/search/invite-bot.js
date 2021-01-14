@@ -12,9 +12,9 @@ module.exports = {
   const msgg = args.join(" ");
   
   let channel =  message.guild.channels.cache.find(x => x.id === db.get(`inbot`));
-if (!msgg) return message.channel.send(" ");
-    
- message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
+  if (!msgg) return message.channel.send("Please Give ID Bot");
+      
+  await message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
     
    const ar = args
     if (!msgg) return message.channel.send("Please Give ID Bot");

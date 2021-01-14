@@ -13,11 +13,6 @@ module.exports = {
   category: "search",
   run: async (client, message, args, del) => {
     message.delete();
-     let channel = message.guild.channels.cache.find(x => x.name === db.get(`help`));
-
- message.channel.send(`Check Channel ${channel || `<a:failed:798526823976796161> Failed to Send` }`)
-
- 
     if (!args[0])
       return message.channel.send(
         `Please Give Something To Search - ${message.author}`
@@ -49,7 +44,7 @@ module.exports = {
         .setFooter(`Requested By ${message.author.username}`)
         .setTimestamp();
 
-      return channel.send(Embed).then(m => {
+      return message.channel.send(Embed).then(m => {
 
       m.react("✅")
 

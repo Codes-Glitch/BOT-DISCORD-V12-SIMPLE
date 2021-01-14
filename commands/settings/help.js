@@ -4,7 +4,7 @@ const discord = require("discord.js")
 module.exports = {
   name: "setinbot",
   description: "",
-  usage: "setssmsg <channel> do not use `#`",
+  usage: "setinbot <#channel>",
   category: "settings",
   run: async (client, message, args) => {
     
@@ -24,8 +24,8 @@ module.exports = {
     
   
  db.set(`inbot`, channel.id)
-      await message.channel.send(`message level has been set channel ${channel}\nCommand is loading 10s`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
-    process.exit(1);
+      await message.channel.send(`<a:success:798526789114134548> message has been set channel ${channel}\nCommand is loading 10s`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
+    
     
   }
 }

@@ -8,12 +8,6 @@ module.exports = {
   cooldown : 5,
   category: "help",
   run: async (client, message, args, del) => {
-    let chnel = await db.fetch(`help_${message.guild.id}`);
-    if (!chnel) chnel = message.channel
-    
- message.channel.send(`Check Channel ${chnel || `<a:failed:798526823976796161> Failed to Send\nType =sethelpmsg <namechannel> for Verified\nDo not use #` }`)
- 
-  
     
     message.delete();
     if (args[0]) {
@@ -30,7 +24,7 @@ module.exports = {
         .setColor("GREEN")
         .setFooter(client.user.username, client.user.displayAvatarURL());
 
-      return chnel.send(embed);
+      return message.channel.send(embed);
     } else {
       const commands = await client.commands;
 
@@ -69,7 +63,7 @@ module.exports = {
 
         emx.addField("Custom Commands", array.join(", "));
       }
-      return chnel.send(emx);
+      return message.channel.send(emx);
     }
   }
 };

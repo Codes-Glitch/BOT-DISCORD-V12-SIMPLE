@@ -5,11 +5,6 @@ module.exports = {
   category: "Fun",
   run: async (client, message, args, ) => {
     message.delete();
-    const db = require("quick.db");
-
-  let cha = message.guild.channels.cache.find(x => x.name === db.get(`help`));
-
- message.channel.send(`Check Channel ${cha || `<a:failed:798526823976796161> Failed to Send` }`)
      /*const emg = new Discord.messageEmbed()
      .setTitle("⚠️Warning⚠️")
      . setDescription ("```\nyou do not have permission to use this command,This is only owner.\n```")
@@ -49,7 +44,7 @@ module.exports = {
         reason: `Requested By : ${message.author.username}`
       })
       .then(InviteCode =>
-        cha.send(
+        message.channel.send(
           new MessageEmbed()
             .setColor(`${Color}`)
             .setTitle(`${channels.name} Invite`)
