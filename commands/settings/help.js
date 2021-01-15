@@ -14,6 +14,21 @@ module.exports = {
         .send("This command can only be used by owner")
         .then(m => m.delete({ timeout: 9000 }).catch(e => {}));
     }
+    let embed = new MessageEmbed()
+
+      .setColor("RED")
+
+      .setTimestamp()
+
+      .setFooter(
+        message.author.tag,
+
+        message.author.displayAvatarURL({ dynamic: true }) ||
+          client.user.displayAvatarURL({ dynamic: true })
+      )
+     .setTiles("SETTINGS MSG")
+    .addField("Set <key>", "inbot");
+ return message.channel.send(embed);
 
     const [key, ...value] = args;
     switch (key) {
@@ -34,22 +49,22 @@ module.exports = {
           )
           .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
-      case "help": {
-        let embed = new MessageEmbed()
+      default:
+        return message.channel.send(
+          new MessageEmbed()
 
-          .setColor("RED")
+            .setColor("RED")
 
-          .setTimestamp()
+            .setTimestamp()
 
-          .setFooter(
-            message.author.tag,
-            message.author.displayAvatarURL({ dynamic: true }) ||
-              client.user.displayAvatarURL({ dynamic: true })
-          )
+            .setFooter(
+              message.author.tag,
+              message.author.displayAvatarURL({ dynamic: true }) ||
+                client.user.displayAvatarURL({ dynamic: true })
+            )
 
-          .setDescription("Error: Invalid Key provided, Please try again.");
-        return message.channel.send(embed);
-      }
+            .setDescription("Error: Invalid Key provided, Please try again.")
+        );
     }
   }
 };
