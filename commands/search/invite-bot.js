@@ -20,10 +20,11 @@ module.exports = {
     if (msgg.length > 18) return message.channel.send("<a:failed:798526823976796161> Too Long ID - 18 Limit");
     if (isNaN(msgg))return message.reply("<a:failed:798526823976796161> This is not an ID")  
   //await message.channel.send("Check Channel")
-  //return message.channel.send("Check Channel")
+ const me = message.author.tag
+    //return message.channel.send("Check Channel")
    const Discord = require("discord.js");
     //await message.channel.send("Check Channel")
- return chnnel.send(`> INVITE BOT \n\n> [Clink di sini](https://discord.com/oauth2/authorize?client_id=${ar}&scope=bot&permissions=8)\n\n> Author => \`\`\`\n${message.author}\n\`\`\``).then(m => {
+ return chnnel.send(`> INVITE BOT\n> [Clink di sini](https://discord.com/oauth2/authorize?client_id=${ar}&scope=bot&permissions=8)\n=> Author: \`\`\`css\n${me}\n\`\`\``).then(m => {
 
       m.react("✅")
 
