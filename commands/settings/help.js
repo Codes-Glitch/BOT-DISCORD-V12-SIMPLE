@@ -14,21 +14,12 @@ module.exports = {
         .send("This command can only be used by owner")
         .then(m => m.delete({ timeout: 9000 }).catch(e => {}));
     }
-    let embed = new MessageEmbed()
-
-      .setColor("RED")
-
-      .setTimestamp()
-
-      .setFooter(
-        message.author.tag,
-
-        message.author.displayAvatarURL({ dynamic: true }) ||
-          client.user.displayAvatarURL({ dynamic: true })
-      )
-     .setTiles("SETTINGS MSG")
-    .addField("Set <key>", "inbot");
- return message.channel.send(embed);
+    let e = new MessageEmbed()
+    .setTitle ("Setting MSG")
+    . setColor ("GREEN")
+    .addField ("Set <key>","inbot")
+    const w = args.join(" ")
+ if (!w) return message.channel.send(e);
 
     const [key, ...value] = args;
     switch (key) {
