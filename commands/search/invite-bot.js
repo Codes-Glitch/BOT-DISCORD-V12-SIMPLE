@@ -1,4 +1,3 @@
-const Discord = require("discord.js");
 const db = require("wio.db");
 module.exports = {
   name: "inbot",
@@ -22,11 +21,9 @@ module.exports = {
     if (isNaN(msgg))return message.reply("<a:failed:798526823976796161> This is not an ID")  
   //await message.channel.send("Check Channel")
   //return message.channel.send("Check Channel")
-   let emb = new Discord.messageEmbed()
-   .setTitle ("INVITE BOT ")
-   .addFiled ("BOT LINK",`[Clink di sini](https://discord.com/oauth2/authorize?client_id=${ar}&scope=bot&permissions=8)`)
+   const Discord = require("discord.js");
     //await message.channel.send("Check Channel")
- return chnnel.channel.send(emb).then(m => {
+ return chnnel.send(`> INVITE BOT \n\n> [Clink di sini](https://discord.com/oauth2/authorize?client_id=${ar}&scope=bot&permissions=8)\n\n> Author => \`\`\`\n${message.author}\n\`\`\``).then(m => {
 
       m.react("✅")
 
