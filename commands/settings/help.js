@@ -17,7 +17,9 @@ module.exports = {
     let e = new MessageEmbed()
     .setTitle ("Setting MSG")
     . setColor ("GREEN")
-    .addField ("Set <key>","inbot")
+    .addField ("Set <key>","\ninbot")
+    .setTimestamp ()
+       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }) || client.user.displayAvatarURL({ dynamic: true }))
     const w = args.join(" ")
  if (!w) return message.channel.send(e);
 
