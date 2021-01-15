@@ -8,7 +8,11 @@ module.exports = {
   cooldown : 5,
   category: "help",
   run: async (client, message, args, del) => {
-    
+    const channel = message.mentions.channels.first();
+
+          if (!channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES'])) return //message.channel.send('Unicron doesn\'t have permissions to that channel, please give Unicron access to that channel for this to work and try again...Exiting Setup');
+
+           
     message.delete();
     if (args[0]) {
       const command = await client.commands.get(args[0]);
