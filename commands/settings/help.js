@@ -3,8 +3,8 @@ const db = require("quick.db")
 
 module.exports = {
   name: "set",
-  description: "",
-  usage: "setinbot <#channel>",
+  description: "set message commands",
+  usage: "set <key> <#channel>",
   category: "settings",
   run: async (client, message, args) => {
     //OWNER ONLY COMMAND
@@ -25,17 +25,8 @@ const [key, ...value] = args;
     
     //Now we gonna use quick.db
      db.set(`inbot`, channel.id)
-       return message.channel.send(new Discord.MessageEmbed()
-
-                    .setColor('RED')
-
-                    .setTimestamp()
-
-                    .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }) || client.user.displayAvatarURL({ dynamic: true }))
-
-                    .setDescription(await <a:success:798526789114134548> message has been set channel ${channel}\nCommand is loading 10s`
-   )
-    await message.channel.send(`<a:success:798526789114134548> message has been set channel ${channel}\nCommand is loading 10s`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
+     
+   await message.channel.send(`<a:success:798526789114134548> message has been set channel ${channel}`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
     }
               case 'message': {
                 await message.channel.send("ah?")
