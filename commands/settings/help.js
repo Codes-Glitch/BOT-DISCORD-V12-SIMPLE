@@ -7,39 +7,7 @@ module.exports = {
   usage: "setinbot <#channel>",
   category: "settings",
   run: async (client, message, args) => {
-    if (message.substring(0, 1) == '/') {
-
-        var args = message.substring(1).split(' ');
-
-        var cmd = args[0];
-
-       
-
-        args = args.splice(1);
-
-        switch(cmd) {
-
-            // /Hi
-
-            case 'Hi':
-
-                client.sendMessage({
-
-                    to: channelID,
-
-                    message: 'Hello'
-
-				});
-
-            break;
-
-            // Just add any case commands if you want to..
-
-         }
-
-     }
-
-    //OWNER ONLY COMMAND
+     //OWNER ONLY COMMAND
     if(!message.author.id === `${message.guild.ownerID}`) {
       return message.channel.send("This command can only be used by owner").then(m=>m.delete({timeout:9000}).catch(e=>{}))
     }
