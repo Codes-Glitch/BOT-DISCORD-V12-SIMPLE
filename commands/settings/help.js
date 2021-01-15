@@ -1,5 +1,6 @@
-const { discord, Discord } = require("discord.js")
-const db = require("quick.db")
+const { discord, Discord } = require("discord.js");
+const db = require("quick.db");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "set",
@@ -8,42 +9,47 @@ module.exports = {
   category: "settings",
   run: async (client, message, args) => {
     //OWNER ONLY COMMAND
-    if(!message.author.id === `${message.guild.ownerID}`) {
-      return message.channel.send("This command can only be used by owner").then(m=>m.delete({timeout:9000}).catch(e=>{}))
+    if (!message.author.id === `${message.guild.ownerID}`) {
+      return message.channel
+        .send("This command can only be used by owner")
+        .then(m => m.delete({ timeout: 9000 }).catch(e => {}));
     }
-        
-const [key, ...value] = args;
-        switch (key) {
-            case 'channel': { 
-              
-              //ARGUMENT
-  let channel = message.mentions.channels.first()
-  
-    if(!channel) {
-      return message.channel.send("Please Mention the channel first")
-    }
-    
-    //Now we gonna use quick.db
-     db.set(`inbot`, channel.id)
-     
-   await message.channel.send(`<a:success:798526789114134548> message has been set channel ${channel}`).then(m=>m.delete({timeout:10000}).catch(e=>{}))
-    }
-              case 'message': {
-                await message.channel.send("ah?")
+
+    const [key, ...value] = args;
+    switch (key) {
+      case "inbot": {
+        //ARGUMENT
+        let channel = message.mentions.channels.first();
+
+        if (!channel) {
+          return message.channel.send("Please Mention the channel first");
+        }
+
+        //Now we gonna use quick.db
+        db.set(`inbot`, channel.id);
+
+        await message.channel
+          .send(
+            `<a:success:798526789114134548> message has been set channel ${channel}`
+          )
+          .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
-                
-                default:
+      case "help": {
+        let embed = new MessageEmbed()
 
-                return message.channel.send(new Discord.MessageEmbed()
+          .setColor("RED")
 
-                    .setColor('RED')
+          .setTimestamp()
 
-                    .setTimestamp()
+          .setFooter(
+            message.author.tag,
+            message.author.displayAvatarURL({ dynamic: true }) ||
+              client.user.displayAvatarURL({ dynamic: true })
+          )
 
-                    .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }) || client.user.displayAvatarURL({ dynamic: true }))
-
-                    .setDescription('Error: Invalid Key provided, Please try again.')            
-    
-   )}
+          .setDescription("Error: Invalid Key provided, Please try again.");
+        return message.channel.send(embed);
+      }
+    }
   }
-}
+};
