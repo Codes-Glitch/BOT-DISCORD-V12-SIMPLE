@@ -28,34 +28,35 @@ module.exports = {
         "<a:failed:798526823976796161> Please Give ID Bot"
       );
     if (msgg.length > 18)
-      return message.channel.send(
-        "<a:failed:798526823976796161> Too Long ID - 18 Limit"
-      );
-      if (msgg.length > 44)
-
-      return message.channel.send(
-
-        "<a:failed:798526823976796161> It can't be more than - 18"
-
-      );
-
-  
+          return message.channel.send(new MessageEmbed()
+   . setTitle ("Discord Developer")
+  . setDescription (   "<a:failed:798526823976796161> Too Long ID - 18 Limit"
+      )
+     
+     .setTimestamp())
+  if (msgg.length > 44)
+    return message.channel.send(new MessageEmbed()
+   . setTitle ("Discord Developer")
+  . setDescription ( "<a:failed:798526823976796161> It can't be more than - 18"
+      )
+     .setTimestamp())
     if (isNaN(msgg))
-      return message.reply("<a:failed:798526823976796161> This is not an ID"
-    );
+      return message.channel.send(new MessageEmbed()
+   . setTitle ("Discord Developer")
+  . setDescription ("<a:failed:798526823976796161> This is not an ID"
+      )
+     .setTimestamp())
   //  const { MessageEmbed } = require ("discord.js")
-     const ww = new MessageEmbed()
+    if (!msgg < 7)
+       return message.channel.send(new MessageEmbed()
      . setTitle ("Discord Developer")
      . setDescription ( "<a:failed:798526823976796161> The Discord Developer system says Cannot Bot Id be less than - <18> numbers"
       )
-     .setTimestamp()
-    if (!msgg < 7)
-       return message.channel.send(
-        ww);
+     .setTimestamp())
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
     //return message.channel.send("Check Channel")
-    const { Discord, MessageEmbed } = require("discord.js");
+  //  const { Discord, MessageEmbed } = require("discord.js");
     //await message.channel.send("Check Channel")
     const no = new MessageEmbed()
       .setTitle("BOT LINK ID")
