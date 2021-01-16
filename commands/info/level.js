@@ -1,5 +1,5 @@
 const db = require('quick.db')
-const { discord, MessageEmbed } = require('discord.js')
+const discord = require('discord.js')
 const { getInfo } = require("../../handlers/xp.js")
 module.exports = {
   name: "level",
@@ -13,8 +13,8 @@ module.exports = {
        let chnnel = message.guild.channels.cache.find(
 
       x => x.id === db.get(`level`)
-
-    );
+)
+    
     if(user.id === client.user.id) { //IF BOT
       return message.channel.send("😉 | I am on level 500")
     }
@@ -34,18 +34,12 @@ module.exports = {
     .setThumbnail(user.avatarURL())
     .setDescription(`**LEVEL** - ${level}
 **XP** - ${remxp}/${levelxp}`)
-// await message.channel.send("h")
-         const www = new MessageEmbed()
-          .setTitle("Discord Developer")
-          .setDescription(`Check Channel ${chnnel ||
-        `<a:failed:798526823976796161> Failed to Send`}`)
-       .setColor(gagal)
-          .setTimestamp()
-         await message.channel.send(www).then(m=>m.delete({timeout:8000}).catch(e=>{}))
-    return chnnel.send(no).then(m => {
+// await message.channel.send("h
+      
+    return chnnel.send(embed).then(m => {
       m.react("✅");
 
       m.react("❌");
     });
   }
-});
+};
