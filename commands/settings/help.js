@@ -42,22 +42,6 @@ module.exports = {
           )
           .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
-      default:
-        return message.channel.send(
-          new MessageEmbed()
-
-            .setColor("RED")
-
-            .setTimestamp()
-
-            .setFooter(
-              message.author.tag,
-              message.author.displayAvatarURL({ dynamic: true }) ||
-                client.user.displayAvatarURL({ dynamic: true })
-            )
-
-            .setDescription("Error: Invalid Key provided, Please try again.")
-        );
     }
   }
 };
