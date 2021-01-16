@@ -1,4 +1,5 @@
- module.exports = {
+//const message = require('../../message.js');
+module.exports = {
     name: 'clear',
     description: 'Clears messages for you!',
    category: "misc",

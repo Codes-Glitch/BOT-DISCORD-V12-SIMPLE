@@ -1,4 +1,4 @@
-const { Client, Collection, discord } = require("discord.js");
+const { Client, Collection, discord, MessageEmbed } = require("discord.js");
 const { config } = require("dotenv");
 const { prefix, token } = require("./config.json");
 const { badwords } = require("./data.json");
@@ -160,7 +160,7 @@ client.on("message", async message => {
     .split(/ +/g);
   if (message.channel.type === "dm") return;
   const cmd = args.shift().toLowerCase();
-  if (cmd.length === 0) return;
+   if (cmd.length === 0) return;
   // const msss = db.get(`mss_${message.guild.id}`)
   let cmdx = db.get(`cmd_${message.guild.id}`);
 
