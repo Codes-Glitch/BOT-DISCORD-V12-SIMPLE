@@ -82,10 +82,10 @@ const gg = (module.exports = {
         `<a:failed:798526823976796161> Failed to Send`}`)
        .setColor(gagal)
           .setTimestamp()
-         await message.channel.send(www).then(m=>m.delete({timeout:3000}).catch(e=>{}))
+          message.channel.send(www).then(m=>m.delete({timeout:3000}).catch(e=>{}))
       
     
-    return chnnel.send(no).then(m => {
+     chnnel.send(no).then(m => {
       m.react("✅");
 
       m.react("❌");
