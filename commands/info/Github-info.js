@@ -36,7 +36,7 @@ module.exports = {
 
       m.react("798526789114134548")
 
-      m.react("798526823976796161")
+      m.react("❌")
 
     })
      client.on("messageReactionAdd", async (reaction, user) => {
