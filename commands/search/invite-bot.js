@@ -1,4 +1,5 @@
 const db = require("wio.db");
+const { MessageEmbed } = require ("discord.js")
 module.exports = {
   name: "inbot",
   category: "search",
@@ -42,10 +43,15 @@ module.exports = {
     if (isNaN(msgg))
       return message.reply("<a:failed:798526823976796161> This is not an ID"
     );
+  //  const { MessageEmbed } = require ("discord.js")
+     const ww = new MessageEmbed()
+     . setTitle ("Discord Developer")
+     . setDescription ( "<a:failed:798526823976796161> The Discord Developer system says Cannot Bot Id be less than - <18> numbers"
+      )
+     .setTimestamp()
     if (!msgg < 7)
        return message.channel.send(
-        "<a:failed:798526823976796161> "
-      );
+        ww);
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
     //return message.channel.send("Check Channel")
