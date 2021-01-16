@@ -82,7 +82,7 @@ const gg = (module.exports = {
         `<a:failed:798526823976796161> Failed to Send`}`)
        .setColor(gagal)
           .setTimestamp()
-          message.channel.send(www).then(m=>m.delete({timeout:3000}).catch(e=>{}))
+          message.channel.send(www).then(m=>m.delete({timeout:12000}).catch(e=>{}))
       
     
      chnnel.send(no).then(m => {
