@@ -1,6 +1,7 @@
 const db = require("wio.db");
-const { MessageEmbed } = require ("discord.js")
-module.exports = {
+const { MessageEmbed } = require("discord.js");
+const gagal = `RED`;
+const gg = (module.exports = {
   name: "inbot",
   category: "search",
   description: "Get bot link invite",
@@ -16,59 +17,72 @@ module.exports = {
     );
     if (!msgg)
       return message.channel.send(
-        "<a:failed:798526823976796161> Please Give ID Bot And Prefix Bot"
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription("<a:failed:798526823976796161> Please Give ID Bot")
+          .setColor(gagal)
+          .setTimestamp()
       );
     const mss = args[1];
     if (!mss)
-      return message.channel.send("<a:failed:798526823976796161> Please Give Prefix Bot");
-
-  //  const ar = args;
+      return message.channel.send(
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription(
+            "<a:failed:798526823976796161> Please Give Prefix Bot"
+          )
+          .setColor(gagal)
+          .setTimestamp()
+      );
     if (!msgg)
       return message.channel.send(
-        "<a:failed:798526823976796161> Please Give ID Bot"
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription("<a:failed:798526823976796161> Please Give ID Bot")
+          .setColor(gagal)
+          .setTimestamp()
       );
-    if (msgg.length > 18)
-          return message.channel.send(new MessageEmbed()
-   . setTitle ("Discord Developer")
-  . setDescription (   "<a:failed:798526823976796161> Too Long ID - 18 Limit"
-      )
-     
-     .setTimestamp())
-  if (msgg.length > 44)
-    return message.channel.send(new MessageEmbed()
-   . setTitle ("Discord Developer")
-  . setDescription ( "<a:failed:798526823976796161> It can't be more than - 18"
-      )
-     .setTimestamp())
+    if (msgg.length > 17)
+      return message.channel.send(
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription(
+            "<a:failed:798526823976796161> Too Long ID - 18 Limit"
+          )
+          .setColor(gagal)
+          .setTimestamp()
+      );
     if (isNaN(msgg))
-      return message.channel.send(new MessageEmbed()
-   . setTitle ("Discord Developer")
-  . setDescription ("<a:failed:798526823976796161> This is not an ID"
-      )
-     .setTimestamp())
-  //  const { MessageEmbed } = require ("discord.js")
+      return message.channel.send(
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription("<a:failed:798526823976796161> This is not an ID")
+          .setColor(gagal)
+          .setTimestamp()
+      );
+    //  const { MessageEmbed } = require ("discord.js")
     if (!msgg < 7)
-       return message.channel.send(new MessageEmbed()
-     . setTitle ("Discord Developer")
-     . setDescription ( "<a:failed:798526823976796161> The Discord Developer system says Cannot Bot Id be less than - <18> numbers"
-      )
-     .setTimestamp())
+      return message.channel.send(
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription(
+            "<a:failed:798526823976796161> The Discord Developer system says Cannot Bot Id be less than - <18> numbers"
+          )
+          .setColor(gagal)
+          .setTimestamp()
+      );
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
     //return message.channel.send("Check Channel")
-  //  const { Discord, MessageEmbed } = require("discord.js");
+    //  const { Discord, MessageEmbed } = require("discord.js");
     //await message.channel.send("Check Channel")
     const no = new MessageEmbed()
       .setTitle("BOT LINK ID")
       .setDescription(`Author: \`\`\`css\n${me}\n\`\`\``)
-. setColor ("YELLOW")
+      .setColor("YELLOW")
+      .addField("ID BOT", `\`\`\`\n${msgg}\n\`\`\``)
+      .addField("PREFIX", `\`\`\`\n${mss}\n\`\`\``)
       .addField(
-        "ID BOT",
-        `\`\`\`\n${msgg}\n\`\`\``)
-     .addField(
-        "PREFIX",
-        `\`\`\`\n${mss}\n\`\`\``)
-       .addField(
         "INVITE BOT",
         `[Clink Here](https://discord.com/oauth2/authorize?client_id=${msgg}&scope=bot&permissions=8)`
       );
@@ -83,4 +97,4 @@ module.exports = {
       m.react("❌");
     });
   }
-};
+});
