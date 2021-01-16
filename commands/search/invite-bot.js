@@ -26,12 +26,14 @@ module.exports = {
       return message.channel.send(
         "<a:failed:798526823976796161> Please Give ID Bot"
       );
-    if (msgg.length > 25)
+    if (msgg.length > 8)
       return message.channel.send(
         "<a:failed:798526823976796161> Too Long ID - 18 Limit"
       );
     if (isNaN(msgg))
-      return message.reply("<a:failed:798526823976796161> This is not an ID");
+      return message.reply("<a:failed:798526823976796161> This is not an ID"
+    );
+    if (!msgg) < 9
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
     //return message.channel.send("Check Channel")
