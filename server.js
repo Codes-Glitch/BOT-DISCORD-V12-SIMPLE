@@ -142,7 +142,6 @@ client.on("message", async message => {
       .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
   }
 }); //<SETUP SETTINGS>
-
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
@@ -219,5 +218,30 @@ function url(str) {
   }
 }
 //STOP
+client.on("message", async message => {
+ const MessageEmbed= require("discord.js")
+const args = message.content
+ .slice(prefix.length)
+.trim()
+ .split(/ +/g);
+if (message.channel.type === "dm") return;
+if (args.join(" ")) {
+      const command = await client.commands.get(args[0]);
+      if (!command) {
+        return message.channel.send("Unknown Command: " + args[0]);
+      }
+      let embed = new MessageEmbed()
+        .setAuthor(command.name, client.user.displayAvatarURL())
+        .addField("Description", command.description || "Not Provided :(")
+        .addField("Usage", command.usage || "Not Provied")
 
+        .setThumbnail(client.user.displayAvatarURL())
+
+        .setColor("GREEN")
+
+        .setFooter(client.user.username, client.user.displayAvatarURL());
+
+      return message.channel.send(embed);
+
+    }})
 client.login(token);

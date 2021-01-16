@@ -9,6 +9,7 @@ module.exports = {
   category: "settings",
   run: async (client, message, args) => {
     //OWNER ONLY COMMAND
+    message.delete()
     if (!message.author.id === `${message.guild.ownerID}`) {
       return message.channel
         .send("This command can only be used by owner")
@@ -30,11 +31,13 @@ module.exports = {
         let channel = message.mentions.channels.first();
 
         if (!channel) {
-          return message.channel.send(new MessageEmbed()
+          const wwww = new MessageEmbed()
          . setTitle("Settings Message")
-         . setDescription("Please Mention the channel first")
-        .setTimestamp()
-         )}
+         . setDescription("<a:failed:798526823976796161> Please Mention the channel first")
+         . setColor ("GREEN")
+         .setTimestamp()
+       return message.channel.send(wwww).then(m=>m.delete({timeout:12000}).catch(e=>{}))
+         }
 
         //Now we gonna use quick.db
         db.set(`inbot`, channel.id);
