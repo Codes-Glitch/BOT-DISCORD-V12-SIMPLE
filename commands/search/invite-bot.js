@@ -79,7 +79,7 @@ const gg = (module.exports = {
     
     
    // await message.channel.send(
-        const www = new MessageEmbed()
+          const www = new MessageEmbed()
           .setTitle("Discord Developer")
           .setDescription(`Check Channel ${chnnel ||
         `<a:failed:798526823976796161> Failed to Send`}`)
