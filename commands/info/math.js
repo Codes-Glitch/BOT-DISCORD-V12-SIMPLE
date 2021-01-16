@@ -27,7 +27,16 @@ message.delete();
 
         .setTimestamp();
 
-      message.channel.send(embed);
+      message.channel.send(embed).then(m => {
+
+      m.react("798526789114134548")
+
+      m.react("798526823976796161")
+
+    })
+       
+
+ 
 
     } catch (error) {
 
@@ -37,7 +46,8 @@ message.delete();
 
         `Cannot send because there is no Msg set`
 
-   )}}}   
+   )
+    }}}  
     
 
   

@@ -34,12 +34,24 @@ module.exports = {
 
             message.channel.send(embed).then(m => {
 
-      m.react("✅")
+      m.react("798526789114134548")
 
-      m.react("❌")
+      m.react("798526823976796161")
 
     })
+     client.on("messageReactionAdd", async (reaction, user) => {
 
+  if (user.bot) return; // If the user was a bot, return.
+
+ if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
+
+      if (reaction.emoji.name === "❌") {
+
+           message.channel.bulkDelete(1);
+
+    }}) 
+
+ 
     })
 
         } catch (error) {
@@ -52,7 +64,19 @@ module.exports = {
       m.react("🔒")
 
     })
+     client.on("messageReactionAdd", async (reaction, user) => {
 
+  if (user.bot) return; // If the user was a bot, return.
+
+ if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
+
+      if (reaction.emoji.name === "🔒") {
+
+           message.channel.bulkDelete(1);
+
+    }}) 
+
+ 
         }
 
     }
