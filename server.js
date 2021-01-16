@@ -225,23 +225,15 @@ const args = message.content
 .trim()
  .split(/ +/g);
 if (message.channel.type === "dm") return;
-if (args.join(" ")) {
-      const command = await client.commands.get(args[0]);
-      if (!command) {
-        return message.channel.send("Unknown Command: " + args[0]);
-      }
-      let embed = new MessageEmbed()
+    const command = await client.commands.get(args[0]);
+//if (args.join(" ")) {
+  if (!command) {
+         return message.channel.send(new MessageEmbed ()
         .setAuthor(command.name, client.user.displayAvatarURL())
         .addField("Description", command.description || "Not Provided :(")
         .addField("Usage", command.usage || "Not Provied")
-
         .setThumbnail(client.user.displayAvatarURL())
-
         .setColor("GREEN")
-
-        .setFooter(client.user.username, client.user.displayAvatarURL());
-
-      return message.channel.send(embed);
-
-    }})
+        .setFooter(client.user.username, client.user.displayAvatarURL())
+    )}})
 client.login(token);
