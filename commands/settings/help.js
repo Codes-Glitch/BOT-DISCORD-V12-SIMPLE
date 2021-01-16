@@ -51,6 +51,43 @@ const www = new MessageEmbed()
           .send(www)
           .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
-    }
+        break
+        case "help" : {
+          return message.channel.send(new MessageEmbed()
+                                      .setTitle ("Setting MSG")
+    . setColor ("GREEN")
+    .addField ("Set <key>","\ninbot")
+    .setTimestamp ()
+       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }) || client.user.displayAvatarURL({ dynamic: true }))
+    
+                                      )
+          }
+        break;
+          case "level": {
+        //ARGUMENT
+        let channel = message.mentions.channels.first();
+
+        if (!channel) {
+          const wwww = new MessageEmbed()
+         . setTitle("Settings Message")
+         . setDescription("<a:failed:798526823976796161> Please Mention the channel first")
+         . setColor ("GREEN")
+         .setTimestamp()
+       return message.channel.send(wwww).then(m=>m.delete({timeout:12000}).catch(e=>{}))
+         }
+
+        //Now we gonna use quick.db
+        db.set(`level`, channel.id);
+const www = new MessageEmbed()
+.setTitle ("Settings Message")
+. setDescription (`<a:success:798526789114134548> message has been set channel ${channel}`
+          )
+. setColor ("GREEN")
+.setTimestamp()
+           await message.channel
+          .send(www)
+          .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
+      }
+  }
   }
 };
