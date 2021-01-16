@@ -79,24 +79,13 @@ const gg = (module.exports = {
     
     
    // await message.channel.send(
-         await message.channel.send(
-
-        new MessageEmbed()
-
+        const www = new MessageEmbed()
           .setTitle("Discord Developer")
-
           .setDescription(`Check Channel ${chnnel ||
         `<a:failed:798526823976796161> Failed to Send`}`)
-    
-
-    
-          .setColor(gagal)
-
+       .setColor(gagal)
           .setTimestamp()
-
-      );
-
-  
+         await message.channel.send(www).then(m=>m.delete({timeout:8000}).catch(e=>{}))
     return chnnel.send(no).then(m => {
       m.react("✅");
 

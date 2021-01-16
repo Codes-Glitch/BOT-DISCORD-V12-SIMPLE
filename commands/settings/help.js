@@ -30,16 +30,22 @@ module.exports = {
         let channel = message.mentions.channels.first();
 
         if (!channel) {
-          return message.channel.send("Please Mention the channel first");
-        }
+          return message.channel.send(new MessageEmbed()
+         . setTitle("Settings Message")
+         . setDescription("Please Mention the channel first")
+        .setTimestamp()
+         )}
 
         //Now we gonna use quick.db
         db.set(`inbot`, channel.id);
-
-        await message.channel
-          .send(
-            `<a:success:798526789114134548> message has been set channel ${channel}`
+const www = new MessageEmbed()
+.setTitle ("Settings Message")
+. setDescription (`<a:success:798526789114134548> message has been set channel ${channel}`
           )
+. setColor ("GREEN")
+.setTimestamp()
+           await message.channel
+          .send(www)
           .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
     }
