@@ -63,7 +63,12 @@ const gg = (module.exports = {
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
     //return message.channel.send("Check Channel")
-    //  const { Discord, MessageEmbed } = require("discord.js");
+       client.on("messageReactionAdd", async (reaction, user) => {
+  if (user.bot) return; // If the user was a bot, return.
+ if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
+      if (reaction.emoji.name === "❌") {
+      return message.channel.send("Minecraft role was given!").catch(() => console.log("Failed to send DM."));
+ //  const { Discord, MessageEmbed } = require("discord.js");
     //await message.channel.send("Check Channel")
     const no = new MessageEmbed()
       .setTitle("BOT LINK ID")
@@ -84,12 +89,24 @@ const gg = (module.exports = {
           .setTimestamp()
           message.channel.send(www).then(m=>m.delete({timeout:12000}).catch(e=>{}))
       
-    
+      if (reaction.emoji.name === "❌") {
+      return message.channel.send("Minecraft role was given!").catch(() => console.log("Failed to send DM."));
+ // 
      chnnel.send(no).then(m => {
       m.react("✅");
 
       m.react("❌");
    })
-  }}) 
+// if (reaction.message.partial) await reaction.message.fetch(); // Partial messages do not contain any content so skip them.
+
+//  if (reaction.partial) await reaction.fetch();
+
+  
+
+ 
+    //  await reaction.message.guild.members.cache.get(user.id).roles.add("708554596817174559") // Minecraft role.
+
+    }
+  }})}}) 
   
  
