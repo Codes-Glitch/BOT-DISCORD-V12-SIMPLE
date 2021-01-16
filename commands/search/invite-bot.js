@@ -42,7 +42,7 @@ const gg = (module.exports = {
           .setColor(gagal)
           .setTimestamp()
       );
-    if (msgg.length > 17)
+    if (msgg.length > 18)
       return message.channel.send(
         new MessageEmbed()
           .setTitle("Discord Developer")
@@ -61,16 +61,6 @@ const gg = (module.exports = {
           .setTimestamp()
       );
     //  const { MessageEmbed } = require ("discord.js")
-    if (!msgg < 7)
-      return message.channel.send(
-        new MessageEmbed()
-          .setTitle("Discord Developer")
-          .setDescription(
-            "<a:failed:798526823976796161> The Discord Developer system says Cannot Bot Id be less than - <18> numbers"
-          )
-          .setColor(gagal)
-          .setTimestamp()
-      );
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
     //return message.channel.send("Check Channel")
@@ -86,11 +76,27 @@ const gg = (module.exports = {
         "INVITE BOT",
         `[Clink Here](https://discord.com/oauth2/authorize?client_id=${msgg}&scope=bot&permissions=8)`
       );
-    await message.channel.send(
-      `Check Channel ${chnnel ||
-        `<a:failed:798526823976796161> Failed to Send`}`
-    );
+    
+    
+   // await message.channel.send(
+         await message.channel.send(
 
+        new MessageEmbed()
+
+          .setTitle("Discord Developer")
+
+          .setDescription(`Check Channel ${chnnel ||
+        `<a:failed:798526823976796161> Failed to Send`}`)
+    
+
+    
+          .setColor(gagal)
+
+          .setTimestamp()
+
+      );
+
+  
     return chnnel.send(no).then(m => {
       m.react("✅");
 
