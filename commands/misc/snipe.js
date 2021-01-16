@@ -21,17 +21,4 @@ module.exports = {
       m.react("✅")
       m.react("❌")
     })
-
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-	.then(collected => {
-		const reaction = collected.first();
-		
-   if (react.emoji.name === '❌') {
-			message.channel.send('you reacted with a thumbs up.');
-		} else {
-			message.channel.send('you reacted with a thumbs down.');
-		}
-	})}}
-  /*.catch(collected => {
-		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
-	})}};*/
+}}

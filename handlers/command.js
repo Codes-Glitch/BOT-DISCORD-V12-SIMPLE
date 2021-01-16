@@ -1,7 +1,7 @@
 const { readdirSync } = require("fs");
 
 const ascii = require("ascii-table");
-
+const fs = require("fs");
 // Create a new Ascii table
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status");
@@ -30,6 +30,24 @@ module.exports = (client) => {
             if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
         }
     });
+  
+  //vents "handler"
+
+fs.readdir("./commands/ember/", (err, files) => {
+
+  if (err) console.log(err);
+
+  files.forEach(file => {
+
+    let eventFunc = require(`./commands/`);
+
+    let eventName = file.split(".")[0];
+
+    client.on(eventName, (...args) => eventFunc.run(client, ...args));
+
+  });
+
+});
     // Log the table
     console.log(table.toString());
 }
