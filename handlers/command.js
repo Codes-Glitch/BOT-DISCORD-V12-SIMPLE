@@ -1,4 +1,5 @@
 const { readdirSync } = require("fs");
+const Discord = require ("discord.js")
 
 const ascii = require("ascii-table");
 const fs = require("fs");
@@ -30,27 +31,25 @@ module.exports = (client) => {
             if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
         }
     });
-  
-  //vents "handler"
+    // Log the table
+    console.log(table.toString());
+  client.aliases = new Discord.Collection();
 
-fs.readdir("./commands/ember/", (err, files) => {
+client.events = new Discord.Collection();
+fs.readdir("./events/", (err, files) => {
 
   if (err) console.log(err);
 
   files.forEach(file => {
 
-    let eventFunc = require(`./commands/`);
+    let eventFunc = require(`./events/${file}`);
 
     let eventName = file.split(".")[0];
 
     client.on(eventName, (...args) => eventFunc.run(client, ...args));
 
-  });
-
-});
-    // Log the table
-    console.log(table.toString());
-}
+ });
+})}
 
 /**
  * This is the basic command layout
