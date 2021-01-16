@@ -18,17 +18,14 @@ module.exports = {
     . setColor ("GREEN")
     if(msg.image)embed.setImage(msg.image)
     message.channel.send(embed).then(m => {
-
       m.react("✅")
-
       m.react("❌")
-message.react('❌').then(() => message.react('✅'));
-
-const filter = (reaction, user) => {
-	return ['❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+    })
+const filter = (reaction, bot) => {
+	return ['❌'].includes(reaction.emoji.name) && bot.id === message.author.id;
 };
 
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+message.awaitReactions(filter, { max: 1, time: 6000000, errors: ['time'] })
 	.then(collected => {
 		const reaction = collected.first();
 
@@ -37,4 +34,4 @@ message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 		}       })
     
   }
-)}}
+}
