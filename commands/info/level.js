@@ -26,13 +26,36 @@ module.exports = {
     const { level, remxp, levelxp } = getInfo(xp);
     if (xp === 0)
       return message.channel.send(`**${user.tag}** is out of the xp`);
-  
+  }}
 
   const embed = new discord.MessageEmbed()
       .setAuthor(user.username, message.guild.iconURL())
       .setColor("#ff2050")
       .setThumbnail(user.avatarURL()).setDescription(`**LEVEL** - ${level}
 **XP** - ${remxp}/${levelxp}`)
+   const gagal = ``
+   const 
   
-  
-  }}
+  const www = new MessageEmbed()
+
+          .setTitle("Discord Developer")
+
+          .setDescription(`Check Channel ${chnnel ||
+
+        `<a:failed:798526823976796161> Failed to Send`}`)
+
+       .setColor(gagal)
+
+          .setTimestamp()
+
+         await message.channel.send(www).then(m=>m.delete({timeout:3000}).catch(e=>{}))
+
+   return chnnel.send(no).then(m => {
+
+      m.react("✅");
+
+      m.react("❌");
+
+   })
+
+  }}) 

@@ -11,10 +11,9 @@ const gg = (module.exports = {
     //  let annel = message.guild.channels.cache.find((x) => (x.name === ``))
     const db = require("quick.db");
     const msgg = args[0];
+  let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`inbot`) );
 
-    let chnnel = message.guild.channels.cache.find(
-      x => x.id === db.get(`inbot`)
-    );
+// message.channel.send(Check Channel ${channel})//
     if (!msgg)
       return message.channel.send(
         new MessageEmbed()
@@ -76,8 +75,6 @@ const gg = (module.exports = {
         "INVITE BOT",
         `[Clink Here](https://discord.com/oauth2/authorize?client_id=${msgg}&scope=bot&permissions=8)`
       );
-    
-    
    // await message.channel.send(
           const www = new MessageEmbed()
           .setTitle("Discord Developer")
@@ -85,11 +82,14 @@ const gg = (module.exports = {
         `<a:failed:798526823976796161> Failed to Send`}`)
        .setColor(gagal)
           .setTimestamp()
-         await message.channel.send(www).then(m=>m.delete({timeout:8000}).catch(e=>{}))
+         await message.channel.send(www).then(m=>m.delete({timeout:3000}).catch(e=>{}))
+      
+    
     return chnnel.send(no).then(m => {
       m.react("✅");
 
       m.react("❌");
-    });
-  }
-});
+   })
+  }}) 
+  
+ 
