@@ -2,23 +2,16 @@ const ms = require("pretty-ms");
 const { Collection, MessageEmbed, Message } = require("discord.js");
 const cooldowns = new Collection();
 const LevelingCD = new Collection();
+const { Client,client , discord } = require("discord.js");
+const { prefix, token } = require("./config.json");
 
-client.on("message", async member => {
-  
-  /**
-   * @param {Message} message
-   * @param {Client} client
-   * @param {boolean} triggerCommand
-   */
-  async run(client, message, triggerCommand = true) {
+client.on("message", async message  => {
     if (message.partial) await message.fetch();
     if (message.channel.partial) await message.channel.fetch();
     if (message.author.partial) await message.author.fetch();
     if (message.author.bot) return;
 
-    if (await Blacklist(client, message.author.id, message.guild.id || "none"))
-      return;
-
+   
     if (message.channel.type === "dm")
       return await client.emit("directMessage", message);
 
@@ -41,24 +34,12 @@ client.on("message", async member => {
       );
     message.author.permLevel = client.permission.level(message);
 
-    if (await memberVerification(client, message)) return;
-    if (await swearFilter(client, message)) return;
-    if (await inviteFilter(client, message)) return;
-    if (await mentionSpamFilter(client, message)) return;
-
-    if (!triggerCommand) return;
-    // message.delete().catch(O_o=>{});
-
-    const prefix = await message.guild.db.settings("prefix");
-    const prefixRegex = new RegExp(
-      `^(<@!?${client.user.id}>|${client.escapeRegex(prefix)})\\s*`
-    );
-    if (!prefixRegex.test(message.content)) return;
-    const [, matchedPrefix] = message.content.match(prefixRegex);
-    const args = message.content
-      .slice(matchedPrefix.length)
-      .trim()
-      .split(/ +/);
+   
+   const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(/ +/g);
+  
     const commandName = args.shift().toLowerCase();
     const command =
       client.commands.get(commandName) ||
@@ -179,41 +160,4 @@ ${command.options.clientPermissions.join(" ")}
         );
       }
     }
-    if (!LevelingCD.has(message.author.id)) {
-      LevelingCD.set(message.author.id, "timer");
-      message.author.db.levelup(client, message);
-      if (donator)
-        setTimeout(() => LevelingCD.delete(message.author.id), 40000);
-      else setTimeout(() => LevelingCD.delete(message.author.id), 55000);
-    }
-    try {
-      client.logger.info(
-        `Shard[${message.guild.shardID}][${message.guild.id}] (${
-          message.author.tag
-        }/${message.author.id}) ${commandName} ${args.join(" ")}`
-      );
-      const argv = command.argsDefinitions
-        ? Parse(args, command.argsDefinitions)
-        : args;
-      const success = await command.run(client, message, argv).catch(e => {
-        throw e;
-      });
-      if (success !== false) {
-        timestamps.set(message.author.id, now);
-        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-      }
-    } catch (e) {
-      message.channel.send(
-        new MessageEmbed()
-          .setColor("RED")
-          .setTimestamp()
-          .setDescription(
-            `Something went wrong executing that command\nError Message: \`${
-              e.message ? e.message : e
-            }\``
-          )
-      );
-      client.logger.error(e);
-    }
-  }
-};
+ })
