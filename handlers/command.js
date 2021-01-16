@@ -33,23 +33,7 @@ module.exports = (client) => {
     });
     // Log the table
     console.log(table.toString());
-  client.aliases = new Discord.Collection();
-
-client.events = new Discord.Collection();
-fs.readdir("./events/", (err, files) => {
-
-  if (err) console.log(err);
-
-  files.forEach(file => {
-
-    let eventFunc = require(`./events/${file}`);
-
-    let eventName = file.split(".")[0];
-
-    client.on(eventName, (...args) => eventFunc.run(client, ...args));
-
- });
-})}
+ }
 
 /**
  * This is the basic command layout

@@ -11,6 +11,7 @@ let cdSeconds = 5;
 // Collections
 //const { mes } = require("./message.js");
 const db = require("quick.db");
+const fs = require("fs");
 const { addexp } = require("./handlers/xp.js");
 client.commands = new Collection();
 client.aliases = new Collection();
@@ -18,8 +19,27 @@ const { CanvasSenpai } = require("canvas-senpai");
 const canva = new CanvasSenpai();
 // Run the command loader
 ["command"].forEach(handler => {
-  require(`./handlers/${handler}`)(client);
+    require(`./handlers/${handler}`)(client);
 });
+
+//Events "handler"
+
+fs.readdir("./events/", (err, files) => {
+
+  if (err) console.log(err);
+
+  files.forEach(file => {
+
+    let eventFunc = require(`./events/${file}`);
+
+    let eventName = file.split(".")[0];
+
+    client.on(eventName, (...args) => eventFunc.run(client, ...args));
+
+  })})
+
+
+
 
 client.on("ready", () => {
   client.user.setStatus("idle");
