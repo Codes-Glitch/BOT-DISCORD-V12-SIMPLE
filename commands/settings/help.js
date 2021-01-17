@@ -88,6 +88,15 @@ const www = new MessageEmbed()
           .send(www)
           .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
-  }
-  }
-};
+ break;
+           case "ch": {
+         let channel = message.mentions.channels.first();
+           db.set(args[3], channel.id);
+             let chnnel = message.guild.channels.cache.find(x => x.id === args[3])s[
+ d.channels.cache.get('797491226567114753') //insert channel id that you want to send to
+
+  return chnnel.send(say);
+
+  }} 
+      }     
+}

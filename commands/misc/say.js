@@ -18,25 +18,6 @@ module.exports = {
     let say = args.join(' ')
    // const Channel = member.guild.channels.cache.get('797491226567114753') //insert channel id that you want to send to
     message.channel.send(say);
-       const [key, ...value] = args;
-
-    switch (key) {
-
-      case "ch": {
-        let chnnel = message.guild.channels.cache.find(x => x.id === args[2] );
-   let say = args.join(' ')
-
-   // const Channel = member.guild.channels.cache.get('797491226567114753') //insert channel id that you want to send to
-
-    chnnel.send(say);
-
-   
-      }     
-}
- 
-}  
-  }
-
   
 
-
+   }}
