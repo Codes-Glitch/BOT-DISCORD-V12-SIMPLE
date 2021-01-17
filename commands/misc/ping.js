@@ -28,7 +28,9 @@ return message.channel.send("message Locked\nClick 🔓 to return the ping messa
 const filter = (user) => (reaction.emoji.name === "🔓") && (user.id === message.author.id)
 msg.awaitReactions(filter,{
   max: 1
-  }).then(async co
+  }).then(async collected => {
+  if(collected.first().emoji.name === "🔓"){
+     
       m.react("🔓")
 
         client.on("messageReactionAdd", async (reaction, user) => {
@@ -43,11 +45,12 @@ msg.awaitReactions(filter,{
     }}) 
 
  
-    })
-    }}) 
+    }})
+    }) 
 
  
   }
   
   
 }
+)}}
