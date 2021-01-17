@@ -25,11 +25,6 @@ module.exports = {
 
          await  message.channel.bulkDelete(1);
 return message.channel.send("message Locked\nClick 🔓 to return the ping message").then(m => {
-const filter = (user) => (reaction.emoji.name === "🔓") && (user.id === message.author.id)
-msg.awaitReactions(filter,{
-  max: 1
-  }).then(async collected => {
-  if(collected.first().emoji.name === "🔓"){
      
       m.react("🔓")
 
@@ -45,12 +40,10 @@ msg.awaitReactions(filter,{
     }}) 
 
  
-    }})
-    }) 
+    })
+    } 
 
  
   }
   
-  
-}
-)}}
+  )}}
