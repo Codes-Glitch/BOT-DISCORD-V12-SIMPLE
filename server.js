@@ -10,6 +10,8 @@ let cooldown = new Set();
 let cdSeconds = 5;
 // Collections
 //const { mes } = require("./message.js");
+const Cleverbot = require("cleverbot-node");
+
 const db = require("quick.db");
 const fs = require("fs");
 const { addexp } = require("./handlers/xp.js");
@@ -237,5 +239,26 @@ function url(str) {
     return false;
   }
 }
+client.on("message", message => {
+
+  if (message.channel.type === "dm") {
+
+    client.write(message.content, (response) => {
+
+      message.channel.startTyping();
+
+      setTimeout(() => {
+
+        message.channel.send(response.output).catch(console.error);
+
+        message.channel.stopTyping();
+
+      }, Math.random() * (1 - 3) + 1 * 1000);
+
+    });
+
+  }
+
+});
 //STOP
 client.login(token);

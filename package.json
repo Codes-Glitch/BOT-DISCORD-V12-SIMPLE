@@ -27,7 +27,8 @@
     "colornames": "^1.1.1",
     "discord-webhook-node": "^1.1.8",
     "novelcovid": "^3.0.0",
-    "tracks": "^0.5.8"
+    "tracks": "^0.5.8",
+    "cleverbot-node": "^0.3.11"
   },
   "engines": {
     "node": "12.x"
