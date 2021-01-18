@@ -93,54 +93,22 @@ const gg = (module.exports = {
 
       m.react("❌");
        
-            client.on("messageReactionAdd", async (reaction, user) => {
+       client.on("messageReactionAdd", async (reaction, user) => {
 
   if (user.bot) return; // If the user was a bot, return.
 
  if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
 
       if (reaction.emoji.name === "❌") {
-        return message.channel.send("Do you really want to be deleted?").then(m => {
 
-      m.react("🆗")
+           message.channel.bulkDelete(1);
 
-      m.react("❎")
-
-    })
-   //     await message.channel.send ("InBot Has been written off").then(m=>m.delete({timeout:5000}).catch(e=>{}))
-   //   if (!us) return chnnel.send (no)
+    }}) 
 
  
-      //  return user.send(`Your Bot, <@${msgg}> has been declined Server`)
-    }
-  
  }) 
-               client.on("messageReactionAdd", async (reaction, user) => {
 
-  if (user.bot) return; // If the user was a bot, return.
-
- if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
-
-      if (reaction.emoji.name === "🆗") {
-
-           message.channel.bulkDelete(2);
-
-    }}) 
-
-                client.on("messageReactionAdd", async (reaction, user) => {
-
-  if (user.bot) return; // If the user was a bot, return.
-
- if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
-
-      if (reaction.emoji.name === "❎") {
-
-         await  message.channel.bulkDelete(1);
-return 
-    }}) 
-
-
-   })
+   
 // if (reaction.message.partial) await reaction.message.fetch(); // Partial messages do not contain any content so skip them.
 
 //  if (reaction.partial) await reaction.fetch();
