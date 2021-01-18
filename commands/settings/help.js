@@ -77,7 +77,7 @@ const www = new MessageEmbed()
          }
 
         //Now we gonna use quick.db
-        db.set(`level`, channel.id);
+        db.set(`level_${message.guild.id}`, channel.id);
 const www = new MessageEmbed()
 .setTitle ("Settings Message")
 . setDescription (`<a:success:798526789114134548> message has been set channel ${channel}`

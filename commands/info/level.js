@@ -12,7 +12,11 @@ module.exports = {
   run: (client, message, args, mass) => {
     message.delete();
     const user = message.mentions.users.first() || message.author;
-let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`level`) );
+    let chnnel = message.guild.channels.cache.find(
+      x => x.id === db.get(`level_${message.guild.id}`)
+    );
+  // if (chnnel === null) chnnel = message.channel.send(embed)
+  
     if (user.id === client.user.id) {
       //IF BOT
       return message.channel.send("😉 | I am on level 500");
@@ -33,20 +37,24 @@ let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`level`) );
       .setColor("#ff2050")
       .setThumbnail(user.avatarURL()).setDescription(`**LEVEL** - ${level}
 **XP** - ${remxp}/${levelxp}`);
-    
+
+    const www = new MessageEmbed()
+      .setTitle("Discord Developer")
+      .setDescription(
+        `Check Channel ${chnnel ||
+          `<a:failed:798526823976796161> Failed to Send`}`
+      )
+      .setColor(gagal)
+      .setTimestamp();
+    message.channel
+      .send(www)
+      .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
+
   
-const www = new MessageEmbed()
-          .setTitle("Discord Developer")
-          .setDescription(`Check Channel ${chnnel ||
-        `<a:failed:798526823976796161> Failed to Send`}`)
-       .setColor(gagal)
-          .setTimestamp()
-          message.channel.send(www).then(m=>m.delete({timeout:12000}).catch(e=>{}))
-      
-    
-     chnnel.send(embed).then(m => {
+    chnnel.send(embed).then(m => {
       m.react("✅");
 
       m.react("❌");
-   })
-  }} 
+    });
+  }
+};
