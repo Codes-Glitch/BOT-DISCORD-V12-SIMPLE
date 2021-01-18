@@ -1,6 +1,6 @@
 const discord = require("discord.js")
 const { NovelCovid } = require("novelcovid");
-const track = new NovelCovid();
+//const track = new NovelCovid();
 
 module.exports = {
   name: "corona",
@@ -15,7 +15,7 @@ module.exports = {
     }
     
     if(args.join(" ") === "all") {
-      let corona = await track.all() //it will give global cases
+    let corona = await .all() //it will give global cases
       
       let embed = new discord.MessageEmbed()
       .setTitle("Global Cases")

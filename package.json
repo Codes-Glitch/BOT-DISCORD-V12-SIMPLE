@@ -26,7 +26,8 @@
     "request": "^2.88.2",
     "colornames": "^1.1.1",
     "discord-webhook-node": "^1.1.8",
-    "novelcovid": "^3.0.0"
+    "novelcovid": "^3.0.0",
+    "tracks": "^0.5.8"
   },
   "engines": {
     "node": "12.x"
