@@ -44,7 +44,7 @@ fs.readdir("./events/", (err, files) => {
 client.on("ready", () => {
   client.user.setStatus("idle");
   client.user.setActivity(
-    `\n${\n${client.guilds.cache.size} Server | ${client.users.cache.size} User \nMade By FC 么 Glitch Editz `,
+    `\nCommands: ${prefix}help\n${client.guilds.cache.size} Server | ${client.users.cache.size} User \nMade By FC 么 Glitch Editz `,
     {
       type: "WATCHING"
     }
