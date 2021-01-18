@@ -62,7 +62,10 @@ const gg = (module.exports = {
     //  const { MessageEmbed } = require ("discord.js")
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
-    const bot = message.bot.tag;
+      let user;
+    if (!args[0]) {
+      user = message.member;
+    }// const bot = message.bot.tag;
     //return message.channel.send("Check Channel")
    //  const { Discord, MessageEmbed } = require("discord.js");
     //await message.channel.send("Check Channel")
@@ -98,10 +101,10 @@ const gg = (module.exports = {
  if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
 
       if (reaction.emoji.name === "❌") {
-
+const us = user.nickname !== null
          await message.channel.bulkDelete(1)
         await message.channel.send ("InBot Has been written off")
-        return user.send(`Your Bot, @invalid-user has been declined `)
+        return user.send(`Your Bot, ${us} has been declined Server`)
    
     }}) 
 
