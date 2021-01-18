@@ -99,7 +99,7 @@ const gg = (module.exports = {
 
  if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
 
-      if (reaction.emoji.name === "❌") {
+      if (reaction.emoji.name === "❌"){
 
            message.channel.bulkDelete(1);
 
