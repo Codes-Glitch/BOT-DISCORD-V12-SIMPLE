@@ -1,6 +1,7 @@
 dependencies:
   ascii-table: 0.0.9
   canvas-senpai: 1.0.0
+  cleverbot-node: 0.3.11
   colornames: 1.1.1
   discord-webhook-node: 1.1.8
   discord.js: 12.5.1
@@ -826,6 +827,10 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
+  /cleverbot-node/0.3.11:
+    dev: false
+    resolution:
+      integrity: sha1-fGkhFZScrStLXPH9cphaHNr1LT8=
   /cli-cursor/2.1.0:
     dependencies:
       restore-cursor: 2.0.0
@@ -3435,6 +3440,7 @@ shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
   canvas-senpai: ^1.0.0
+  cleverbot-node: ^0.3.11
   colornames: ^1.1.1
   discord-webhook-node: ^1.1.8
   discord.js: ^12.5.1
