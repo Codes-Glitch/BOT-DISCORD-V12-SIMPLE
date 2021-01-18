@@ -3,7 +3,7 @@ const db = require("quick.db");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "set",
+  name: "settings",
   description: "set message commands",
   usage: "set <key> <#channel>",
   category: "settings",
@@ -40,7 +40,7 @@ module.exports = {
          }
 
         //Now we gonna use quick.db
-        db.set(`inbot`, channel.id);
+        db.set(`inbot_${message.guild.id}`, channel.id);
 const www = new MessageEmbed()
 .setTitle ("Settings Message")
 . setDescription (`<a:success:798526789114134548> message has been set channel ${channel}`

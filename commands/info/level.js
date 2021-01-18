@@ -15,7 +15,7 @@ module.exports = {
     let chnnel = message.guild.channels.cache.find(
       x => x.id === db.get(`level_${message.guild.id}`)
     );
-  // if (chnnel === null) chnnel = message.channel.send(embed)
+  if (chnnel === null) chnnel = message.channel.send(embed)
   
     if (user.id === client.user.id) {
       //IF BOT

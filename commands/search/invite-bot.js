@@ -11,7 +11,7 @@ const gg = (module.exports = {
     //  let annel = message.guild.channels.cache.find((x) => (x.name === ``))
     const db = require("quick.db");
     const msgg = args[0];
-  let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`inbot`) );
+  let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`inbot_${message.guild.id}`) );
 
 // message.channel.send(Check Channel ${channel})//
     if (!msgg)
@@ -89,6 +89,20 @@ const gg = (module.exports = {
       m.react("✅");
 
       m.react("❌");
+       
+            client.on("messageReactionAdd", async (reaction, user) => {
+
+  if (user.bot) return; // If the user was a bot, return.
+
+ if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
+
+      if (reaction.emoji.name === "❌") {
+
+           message.channel.bulkDelete(1);
+
+    }}) 
+
+ 
    })
 // if (reaction.message.partial) await reaction.message.fetch(); // Partial messages do not contain any content so skip them.
 
