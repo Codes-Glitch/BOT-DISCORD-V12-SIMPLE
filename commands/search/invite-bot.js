@@ -62,16 +62,15 @@ const gg = (module.exports = {
     //  const { MessageEmbed } = require ("discord.js")
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
-    const us = message.mentions.members.first() || await message.guild.members.fetch(args[0])
-    
+    const us = await message.guild.members.fetch(args[0])
+ //   const nick = message.members.first()
 // const bot = message.bot.tag;
     //return message.channel.send("Check Channel")
-   //  const { Discord, MessageEmbed } = require("discord.js");
+   //\nBot Name: \n${us}  const { Discord, MessageEmbed } = require("discord.js");
     //await message.channel.send("Check Channel")
     const no = new MessageEmbed()
       .setTitle("BOT LINK ID")
       .setDescription(`Author: \`\`\`css\n${me}\n\`\`\``)
-      .setDescription(`Bot Name: \n${us}`)
       .setColor("YELLOW")
       .addField("ID BOT", `\`\`\`\n${msgg}\n\`\`\``)
       .addField("PREFIX", `\`\`\`\n${mss}\n\`\`\``)
@@ -102,9 +101,11 @@ const gg = (module.exports = {
 
       if (reaction.emoji.name === "❌") {
          await message.channel.bulkDelete(1)
-        await message.channel.send ("InBot Has been written off")
-        return user.send(`Your Bot, ${us} has been declined Server`)
-   
+   //     await message.channel.send ("InBot Has been written off").then(m=>m.delete({timeout:5000}).catch(e=>{}))
+   //   if (!us) return chnnel.send (no)
+
+ 
+      //  return user.send(`Your Bot, <@${msgg}> has been declined Server`)
     }}) 
 
  
