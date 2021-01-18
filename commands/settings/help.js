@@ -18,7 +18,7 @@ module.exports = {
     let e = new MessageEmbed()
       .setTitle("Setting MSG")
       .setColor("GREEN")
-      .addField("Set <key>", "\ninbot, level")
+      .addField("Set <key>", "\ninbot, level, uptime")
       .setTimestamp()
       .setFooter(
         message.author.tag,
@@ -64,17 +64,17 @@ module.exports = {
         break;
       case "help":
         {
-          return message.channel.send(
-            new MessageEmbed()
+          return message.channel.send(e
+        /*    new MessageEmbed()
               .setTitle("Setting MSG")
               .setColor("GREEN")
-              .addField("Set <key>", "\ninbot, level")
+              .addField("Set <key>", "\ninbot, level, utime")
               .setTimestamp()
               .setFooter(
                 message.author.tag,
                 message.author.displayAvatarURL({ dynamic: true }) ||
                   client.user.displayAvatarURL({ dynamic: true })
-              )
+              )*/
           );
         }
         break;
@@ -127,12 +127,12 @@ module.exports = {
 
         hours %= 24;
        const u =  message.mentions.members.first()
-    const us = message.guild.members.fetch(`<@${u}>`)
- 
+    const us = message.guild.members.fetch(client.user.id)
+ const ddi = `790937024941129759`
         const uptime = new MessageEmbed()
-          .setTitle("Settings Message")
+          .setTitle("UPTIME BOT ONLINE")
           .setDescription(
-            `<a:success:798526789114134548> ${u}: \`${days} day(s),${hours} hours, ${minutes} minutes, ${seconds} seconds\``
+            `<a:success:798526789114134548> <@${ddi}> : \`${days} day(s),${hours} hours, ${minutes} minutes, ${seconds} seconds\``
           )
 
           .setColor("GREEN")
