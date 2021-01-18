@@ -12,7 +12,7 @@ const gg = (module.exports = {
     const db = require("quick.db");
     const msgg = args[0];
   let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`inbot_${message.guild.id}`) );
-
+//if (!chnnel, message.channel.id) return; //db.get(`inbot_${message.guild.id}`)) return; 
 // message.channel.send(Check Channel ${channel})//
     if (!msgg)
       return message.channel.send(
@@ -62,7 +62,7 @@ const gg = (module.exports = {
     //  const { MessageEmbed } = require ("discord.js")
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
-    const us = await message.guild.members.fetch(args[0])
+  //  const us = await message.guild.members.fetch(args[0])
  //   const nick = message.members.first()
 // const bot = message.bot.tag;
     //return message.channel.send("Check Channel")
@@ -100,15 +100,46 @@ const gg = (module.exports = {
  if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
 
       if (reaction.emoji.name === "❌") {
-         await message.channel.bulkDelete(1)
+        return message.channel.send("Do you really want to be deleted?").then(m => {
+
+      m.react("🆗")
+
+      m.react("❎")
+
+    })
    //     await message.channel.send ("InBot Has been written off").then(m=>m.delete({timeout:5000}).catch(e=>{}))
    //   if (!us) return chnnel.send (no)
 
  
       //  return user.send(`Your Bot, <@${msgg}> has been declined Server`)
+    }
+  
+ }) 
+               client.on("messageReactionAdd", async (reaction, user) => {
+
+  if (user.bot) return; // If the user was a bot, return.
+
+ if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
+
+      if (reaction.emoji.name === "🆗") {
+
+           message.channel.bulkDelete(2);
+
     }}) 
 
- 
+                client.on("messageReactionAdd", async (reaction, user) => {
+
+  if (user.bot) return; // If the user was a bot, return.
+
+ if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
+
+      if (reaction.emoji.name === "❎") {
+
+         await  message.channel.bulkDelete(1);
+return 
+    }}) 
+
+
    })
 // if (reaction.message.partial) await reaction.message.fetch(); // Partial messages do not contain any content so skip them.
 
