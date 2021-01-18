@@ -21,7 +21,9 @@ module.exports = {
       user =
         message.mentions.members.first() ||
         (await message.guild.members.fetch(args[0]).catch(err => {
-          return message.channel.send("<a:failed:798526823976796161> Unable to find this Person");
+          return message.channel.send(
+            "<a:failed:798526823976796161> Unable to find this Person"
+          );
         }));
     }
 
@@ -104,11 +106,13 @@ module.exports = {
       )
       .addField("Badges", newbadges.join(", ").toLowerCase() || "None")
       //  .addField(user.user.presence.status, stat[user.user.presence.status])
-
-      .setFooter(`Status member: user.user.presence.status, stat[user.user.presence.status]`);
+      //.addField ("Status Member:",)
+      .setFooter(user.user.presence.status, stat[user.user.presence.status]);
 
     return message.channel.send(embed).catch(err => {
-      return message.channel.send("<a:failed:798526823976796161> Error : " + err);
+      return message.channel.send(
+        "<a:failed:798526823976796161> Error : " + err
+      );
     });
   }
 };
