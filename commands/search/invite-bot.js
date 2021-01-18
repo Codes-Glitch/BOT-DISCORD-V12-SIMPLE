@@ -62,6 +62,7 @@ const gg = (module.exports = {
     //  const { MessageEmbed } = require ("discord.js")
     //await message.channel.send("Check Channel")
     const me = message.author.tag;
+    const bot = message.bot.tag;
     //return message.channel.send("Check Channel")
    //  const { Discord, MessageEmbed } = require("discord.js");
     //await message.channel.send("Check Channel")
@@ -98,8 +99,10 @@ const gg = (module.exports = {
 
       if (reaction.emoji.name === "❌") {
 
-           message.channel.bulkDelete(1);
-
+         await message.channel.bulkDelete(1)
+        await message.channel.send ("InBot Has been written off")
+        return user.send(`Your Bot, @invalid-user has been declined `)
+   
     }}) 
 
  
