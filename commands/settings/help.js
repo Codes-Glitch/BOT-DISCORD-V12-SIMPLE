@@ -87,4 +87,50 @@ const www = new MessageEmbed()
            await message.channel
           .send(www)
           .then(m => m.delete({ timeout: 10000 }).catch(e => {}))
-  }}}}
+  };
+    
+    
+     break;
+    
+      case "uptime": {
+
+          let seconds = Math.floor(message.client.uptime / 1000);
+
+    let minutes = Math.floor(seconds / 60);
+
+    let hours = Math.floor(minutes / 60);
+
+    let days = Math.floor(hours / 24);
+
+    seconds %= 60;
+
+    minutes %= 60;
+
+    hours %= 24;
+
+    return message
+const uptime = new MessageEmbed()
+.setTitle ("Settings Message")
+. setDescription (`<a:success:798526789114134548> message has been set channel ${channel}`
+
+. setColor ("GREEN")
+.setTimestamp()
+           await message.channel
+          .send(www)
+          .then(m => m.delete({ timeout: 10000 }).catch(e => {}))
+  };
+    
+
+   
+      .catch(console.error);
+
+  
+
+};
+
+};
+
+ }
+
+  }
+  

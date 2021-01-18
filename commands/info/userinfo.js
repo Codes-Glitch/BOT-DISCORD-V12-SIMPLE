@@ -114,5 +114,5 @@ module.exports = {
         "<a:failed:798526823976796161> Error : " + err
       );
     });
+   }
   }
-};
