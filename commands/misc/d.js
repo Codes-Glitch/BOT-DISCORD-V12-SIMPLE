@@ -1,4 +1,5 @@
 const db = require("quick.db");
+const discord = require ("discord.js")
 
 
 module.exports = {
@@ -9,15 +10,16 @@ module.exports = {
 
   description: "Get bot ping :/",
 
-  usage: "say <msg>",
+  usage: "",
 
   run: async (client, message, args) => {
    message.delete();
-    const usa = args.join(' ')
-      if (!usa) return message.channel.send(`${message.author}, say <msg>`)
-    let say = args.join(' ')
-   // const Channel = member.guild.channels.cache.get('797491226567114753') //insert channel id that you want to send to
-    message.channel.send(say);
-  
+   let embedtext = args.slice(0).join(" ")
+          if(!embedtext) return message.channel.send("Masukan kata-kata terlebih dahulu!")
 
-   }}
+           let embed = new discord.MessageEmbed()
+           .setDescription(embedtext)
+           message.channel.send(embed);
+
+       }
+}
