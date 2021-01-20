@@ -7,7 +7,9 @@ module.exports = {
   category: "moderation",
   description: "Reset warnings of mentioned person",
   run: async (client, message, args) => {
-    
+    message.delete()
+
+   
     
     if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("You should have admin perms to use this command")
@@ -22,7 +24,12 @@ module.exports = {
     if(message.mentions.users.first().bot) {
       return message.channel.send("Bot are not allowed to have warnings")
     }
-    
+      if(user.id === message.guild.owner.id) {
+
+      return message.channel.send("You jerk, how you can reset-warn server owner -_-")
+
+    }
+
     if(message.author.id === user.id) {
       return message.channel.send("You are not allowed to reset your warnings")
     }

@@ -6,6 +6,7 @@ module.exports = {
   description: "Get the warnings of yours or mentioned person",
   category: "moderation",
   run: (client, message, args) => {
+   message.delete()
     const user = message.mentions.members.first() //|| message.author;
     if (!user) return message.channel.send("Please Give User mention");
     const u = args[0];
@@ -18,7 +19,13 @@ module.exports = {
       return message.channel.send("You can not warnings bots")
 
     }
+  if(user.id === message.guild.owner.id) {
 
+      return message.channel.send("You jerk, how you can warnings server owner -_-")
+
+    }
+
+  
   
     message.channel.send(
       new DISCORD.MessageEmbed()

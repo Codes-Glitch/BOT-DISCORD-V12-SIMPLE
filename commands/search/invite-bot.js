@@ -51,6 +51,16 @@ const gg = (module.exports = {
           .setColor(gagal)
           .setTimestamp()
       );
+    if (msgg.length < 17)
+      return message.channel.send(
+        new MessageEmbed()
+          .setTitle("Discord Developer")
+          .setDescription(
+            "<a:failed:798526823976796161> Less Bot ID!, must be 18 ID"
+          )
+          .setColor(gagal)
+          .setTimestamp()
+      );
     if (isNaN(msgg))
       return message.channel.send(
         new MessageEmbed()
