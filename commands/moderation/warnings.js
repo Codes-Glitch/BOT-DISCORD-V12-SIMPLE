@@ -6,17 +6,27 @@ module.exports = {
   description: "Get the warnings of yours or mentioned person",
   category: "moderation",
   run: (client, message, args) => {
-    const user = message.mentions.members.first() || message.author;
+    const user = message.mentions.members.first() //|| message.author;
+    if (!user) return message.channel.send("Please Give User mention");
     const u = args[0];
-    if (!u)
-      return message.channel.send("warnings <@user>")
+    if (!u) return message.channel.send("warnings <@user>");
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
     if (warnings === null) warnings = 0;
+  if(message.mentions.users.first().bot) {
 
-      message.channel.send(new DISCORD.MessageEmbed()
+      return message.channel.send("You can not warnings bots")
+
+    }
+
+  
+    message.channel.send(
+      new DISCORD.MessageEmbed()
         .setTitle("MODERATION WARN")
-         . setDescription (`<a:right:798696415089262632> ${user}\nThe number of members in the Warn: \n<a:right:798696415089262632> Warn:**${warnings}**`)
-      .
-   )}
+        .setDescription(
+          `<a:right:798696415089262632> Name User:\n<a:Right:797490924241813505> ${user}\nThe number of members in the Warn: \n<a:right:798696415089262632> Warn:\`\`\`\n${warnings}\n\`\`\``
+        )
+        .setColor("RED")
+    );
+  }
 };
