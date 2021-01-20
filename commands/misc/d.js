@@ -15,7 +15,7 @@ const colo = args[1]
 
            let embed = new discord.MessageEmbed()
            . setDescription (embedtext)
-     . setColor (`${regex}${colo}`)
+     . setColor ("RANDOM")
                 message.channel.send(embed);
 
        }
