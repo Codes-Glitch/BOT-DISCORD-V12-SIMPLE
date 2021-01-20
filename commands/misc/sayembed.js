@@ -12,11 +12,10 @@ module.exports = {
   usage: "embed <msg>",
 
   run: async (client, message, args) => {
- //  message.delete();
+   message.delete();
    let embedtext = args.slice(0).join(" ")
           if(!embedtext) return message.channel.send("Enter the words first!").then(m=>m.delete({timeout:5000}).catch(e=>{}))
-let colo = args.join("GREEN")
-           let embed = new DISCORD.MessageEmbed()
+                  let embed = new DISCORD.MessageEmbed()
 
            .setDescription(embedtext)
            . setColor ("GREEN")

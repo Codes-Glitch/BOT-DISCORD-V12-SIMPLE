@@ -148,6 +148,62 @@ module.exports = {
         return message.channel.send(uptime);
         //.then(m => m.delete({ timeout: 10000 }).catch(e => {}));
       }
-    }
+   /*     break;
+          case "level":
+
+        {
+
+          //ARGUMENT
+
+      //    let channel = message.mentions.channels.first();
+
+      /*    if (!channel) {
+            const wwww = new MessageEmbed()
+              .setTitle("Settings Message")
+
+              .setDescription(
+
+                "<a:failed:798526823976796161> Please Mention the channel first"
+
+              )
+
+              .setColor("GREEN")
+
+              .setTimestamp();
+
+            return message.channel
+
+              .send(wwww)
+
+              .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
+
+          }
+*/
+          //Now we gonna use quick.db
+
+    /*      db.set(`color_${message.guild.id}`);
+
+          const wwe = new MessageEmbed()
+
+            .setTitle("Settings Message")
+
+            .setDescription(
+
+              `<a:success:798526789114134548> color has been set channel `+ args[0]
+
+            )
+
+            .setColor("GREEN")
+
+            .setTimestamp();
+
+          await message.channel
+
+            .send(wwe)
+
+            .then(m => m.delete({ timeout: 10000 }).catch(e => {}));
+
+        }
+    }*/
   }
-};
+}}
