@@ -9,9 +9,7 @@ module.exports = {
     const em = new Discord.MessageEmbed()
       .setTitle("📡Check Your Ping📡")
       .setDescription(
-        `${client.getEmoji("join_arrow", "system")} PING: \`\`\`\n${
-          client.ws.ping
-        }\n\`\`\``
+        `<a:LoadingD:800177211184775220> PING: \`\`\`\n${client.ws.ping}\n\`\`\``
       )
       .setColor("GREEN")
       .setTimestamp();
