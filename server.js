@@ -171,8 +171,8 @@ client.on("message", async message => {
   let cmdx = db.get(`cmd_${message.guild.id}`);
 
   if (cmdx) {
-    let cmdy = cmdx.find(x => x.name === args[0]);
-   // let cmdy = cmdx.find(x => x.name === cmd);
+   // let cmdy = cmdx.find(x => x.name === args[0]);
+   let cmdy = cmdx.find(x => x.name === cmd);
     if (cmdy) message.channel.send(cmdy.responce);
   }
   /*const db = require("quick.db");
