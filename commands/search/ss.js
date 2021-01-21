@@ -15,9 +15,9 @@ module.exports = {
   usage: "screenshot <URL>",
   run: async (client, message, args) => {
     message.delete()
-    
+    const = 
     const urls = args[0];
-    if(!urls)return message.reply("```\nwhere is the link -_\n```")
+    if(!urls)return message.channel.send(`\`\`\`\nwhere is the link -_\n\`\`\``)
       if (urls.length < 8)
     return message.reply('<a:failed:798526823976796161> https is too short to reach - 8 limit').then(m=>m.delete({timeout:9000}).catch(e=>{}))
    
@@ -31,7 +31,7 @@ module.exports = {
       );
       
       return message.channel.send(
-        `\`\`\`\nHere is a screenshot from requested URL\n\`\`\` [Clink Here](${urls})`,
+        `\`\`\`\nHere is a screenshot from requested URL\n\`\`\``,
         {
           files: [{ attachment: body, name: "Screenshot.png" }]
         }
