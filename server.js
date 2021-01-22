@@ -130,7 +130,7 @@ client.on('messageEdit', function(message, channel){
 
   })
 })*/
-client.on("message", async message => {
+/*client.on("message", async message => {
   if (message.author.bot) return;
   let confirm7 = false;
   //NOW WE WILL USE FOR LOOP
@@ -147,7 +147,7 @@ client.on("message", async message => {
       )
       .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
   }
-}); //<SETUP SETTINGS>
+});*/ //<SETUP SETTINGS>
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
