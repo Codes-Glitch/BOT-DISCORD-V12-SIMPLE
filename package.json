@@ -28,7 +28,9 @@
     "novelcovid": "^3.0.0",
     "tracks": "^0.5.8",
     "cleverbot-node": "^0.3.11",
-    "wio.db": "^4.0.10"
+    "wio.db": "^4.0.10",
+    "ytdl-core": "^4.4.4",
+    "yt-search": "^2.5.2"
   },
   "engines": {
     "node": "12.x"
