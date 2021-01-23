@@ -8,7 +8,7 @@ module.exports = {
   usage: "play <music>",
   category: "info",
   run: (client, message, args, mass) => {
-    message.delete();
+  //  message.delete();
     const voiceChannel = message.member.voice.channel;
 
     if (!voiceChannel) return message.channel.send('You need to join a voice Channel to listen music');
@@ -23,11 +23,11 @@ module.exports = {
 
  
 
-    if (!args.length) return message.channel.send('You need to send second argument');
+   if (!args.length) return message.channel.send('You need to send second argument');
 
    
 
-  const connection =  await voiceChannel.join();
+  const connection =  voiceChannel.join();
 
     
 
@@ -45,7 +45,7 @@ module.exports = {
 
   
 
-  const video = await videoFinder(args.join(' '));
+  const video = videoFinder(args.join(' '));
 
     
 
@@ -65,7 +65,7 @@ module.exports = {
 
       
 
-      message.channel.send(👍 playing ***${video.title}***)
+      message.channel.send(` playing ***${video.title}***`)
 
       } else {
 
