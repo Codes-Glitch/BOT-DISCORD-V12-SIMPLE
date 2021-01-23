@@ -1,6 +1,6 @@
 const { Client, Collection, discord, MessageEmbed } = require("discord.js");
 const { config } = require("dotenv");
-const { prefix, token } = require("./config.json");
+const { Default_prefix, token } = require("./config.json");
 const { badwords } = require("./data.json");
 const { ping } = require("./ping.json");
 const client = new Client({
@@ -30,7 +30,7 @@ const canva = new CanvasSenpai();
 client.on("ready", () => {
   client.user.setStatus("idle");
   client.user.setActivity(
-    `\nCommands: ${prefix}help\n${client.guilds.cache.size} Server | ${client.users.cache.size} User \nMade By FC 么 Glitch Editz `,
+    `\nCommands: =help\n${client.guilds.cache.size} Server | ${client.users.cache.size} User \nMade By FC 么 Glitch Editz `,
     {
       type: "WATCHING"
     }
@@ -159,6 +159,11 @@ client.on("message", async message => {
   // If message.member is uncached, cache it.
   if (!message.member)
     message.member = await message.guild.fetchMember(message);
+
+  let Prefix = await db.fetch(`Prefix_${message.guild.id}`);
+  if (!Prefix) Prefix = Default_Prefix;
+
+  if (!message.content.startsWith(Prefix)) return;
 
   const args = message.content
     .slice(prefix.length)
