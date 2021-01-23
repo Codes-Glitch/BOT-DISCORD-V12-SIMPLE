@@ -15,7 +15,7 @@ class Util {
 
   
   static getLevelxp(level) {
-    return 5 * Math.pow(level, 2) + 50 * level + 500;
+    return 5 * Math.pow(level, 2) + 50 * level + 100;
   }
   
   static getInfo(exp) {

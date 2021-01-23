@@ -14,7 +14,7 @@ module.exports = {
     const user = message.mentions.users.first() || message.author;
     let chnnel = message.guild.channels.cache.find(
       x => x.id === db.get(`level_${message.guild.id}`)
- )   
+    );
     if (user.id === client.user.id) {
       //IF BOT
       return message.channel.send("😉 | I am on level 500");
@@ -47,16 +47,14 @@ module.exports = {
     message.channel
       .send(www)
       .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
- if (!chnnel === null) {
+    /*if (!chnnel === null) {
 
-    return;
- 
+    return;*/
 
-  
     chnnel.send(embed).then(m => {
       m.react("✅");
 
       m.react("❌");
     });
-  }}
+  }
 };
