@@ -14,29 +14,8 @@ module.exports = {
        let channel = message.mentions.channels.first();
     const arg = args[0]
        if (!arg) {
-
-            const wwww = new MessageEmbed()
-
-              .setTitle("Settings Message")
-
-              .setDescription(
-
-                "<a:failed:798526823976796161> Please Mention the channel first"
-
-              )
-
-              .setColor("GREEN")
-
-              .setTimestamp();
-
-            return message.channel
-
-              .send(wwww)
-
-              .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
-
-          }
-      await db.set(`say_${message.guild.id}`, channel.id);
+return message.channel.send("<a:failed:798526823976796161> Please Mention the channel first")}
+    await db.set(`say_${message.guild.id}`, channel.id);
 
       
     let chnnel = message.guild.channels.cache.find(x => x.id === db.get(`say_${message.guild.id}`, channel.id));
