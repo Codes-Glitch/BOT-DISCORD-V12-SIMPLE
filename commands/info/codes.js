@@ -21,7 +21,9 @@ module.exports = {
 
       return message.channel.send(
 
-        `I couldn't find a command called \`${args[0]}\``
+        `I couldn't find a command called \`${args[0] || "Invalid text"}\`\n
+        How to use Yes it is category/name.js
+`
 
       );
 
