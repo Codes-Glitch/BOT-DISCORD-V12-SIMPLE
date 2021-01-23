@@ -160,7 +160,7 @@ client.on("message", async message => {
   if (!message.member)
     message.member = await message.guild.fetchMember(message);
 
-  let Prefix = await db.fetch(`Prefix_${message.guild.id}`);
+  let Prefix = await db.get(`Prefix_${message.guild.id}_${message.guild.id}`);
   if (!Prefix) Prefix = Default_Prefix;
 
   if (!message.content.startsWith(Prefix)) return;

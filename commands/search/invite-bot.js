@@ -1,4 +1,4 @@
-const db = require("wio.db");
+const db = require("quick.db");
 const { MessageEmbed } = require("discord.js");
 const gagal = `RED`;
 const gg = (module.exports = {

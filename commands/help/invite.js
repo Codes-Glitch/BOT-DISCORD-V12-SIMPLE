@@ -1,6 +1,6 @@
 //const { Default_Prefix, Color, Owner, Support, Donate } = require("../../config.js");
 const Discord = require("discord.js");
-const db = require("wio.db");
+const db = require("quick.db");
 const Owner = `767726828311543820`
 const Support = `https://discord.gg/MKwyk4qdeb`
 module.exports = {

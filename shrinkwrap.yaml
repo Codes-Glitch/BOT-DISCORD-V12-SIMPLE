@@ -9,7 +9,7 @@ dependencies:
   express: 4.17.1
   fs: 0.0.2
   google-play-scraper: 8.0.2
-  mathjs: 8.1.1
+  mathjs: 9.0.0
   moment: 2.29.1
   node-fetch: 2.6.1
   novelcovid: 3.0.0
@@ -17,7 +17,6 @@ dependencies:
   request: 2.88.2
   tracks: 0.5.8
   translate-google: 1.4.3
-  wio.db: 4.0.10
 packages:
   /@aero/centra/1.0.6:
     dev: false
@@ -2097,7 +2096,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
-  /mathjs/8.1.1:
+  /mathjs/9.0.0:
     dependencies:
       complex.js: 2.0.11
       decimal.js: 10.2.1
@@ -2112,7 +2111,7 @@ packages:
       node: '>= 10'
     hasBin: true
     resolution:
-      integrity: sha512-b3TX3EgiZObujjwb8lZnTDLUuivC2jar4ZBjmGJ4stFYCDXx/DNwx5yry5t/z65p9mvejyZel1qoeR05KtChcQ==
+      integrity: sha512-ZfNz90wyed1MJUQOfL+Jr9IWG6vevVPM+cFf93sV568lbY8w2obEv5Ba7e7+Ylg5Zv0PTPtEY5CbqivHw/AxGQ==
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -3346,10 +3345,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
-  /wio.db/4.0.10:
-    dev: false
-    resolution:
-      integrity: sha512-2oiSZyfmNnG1UYrXEjxDl1W6O0webPsHuF6N7emkjnSxoqdHhagWo1H9+g2p3DHy9fSmiq0B7qL7Z4niw078wA==
   /word-wrap/1.2.3:
     dev: false
     engines:
@@ -3448,7 +3443,7 @@ specifiers:
   express: ^4.17.1
   fs: ^0.0.2
   google-play-scraper: ^8.0.2
-  mathjs: ^8.1.1
+  mathjs: ^9.0.0
   moment: ^2.29.1
   node-fetch: ^2.6.1
   novelcovid: ^3.0.0
@@ -3456,4 +3451,3 @@ specifiers:
   request: ^2.88.2
   tracks: ^0.5.8
   translate-google: ^1.4.3
-  wio.db: ^4.0.10
