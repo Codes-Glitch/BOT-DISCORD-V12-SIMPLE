@@ -1,6 +1,6 @@
 const { Client, Collection, discord, MessageEmbed } = require("discord.js");
 const { config } = require("dotenv");
-const { Default_prefix, token } = require("./config.json");
+const { Default_Prefix, token } = require("./config.json");
 const { badwords } = require("./data.json");
 const { ping } = require("./ping.json");
 const client = new Client({
@@ -151,7 +151,7 @@ client.on('messageEdit', function(message, channel){
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
-  if (!message.content.startsWith(prefix)) return;
+ // if (!message.content.startsWith(prefix)) return;
 
   // If message.member is uncached, cache it.
   if (!message.member)
@@ -166,7 +166,7 @@ client.on("message", async message => {
   if (!message.content.startsWith(Prefix)) return;
 
   const args = message.content
-    .slice(prefix.length)
+    .slice(Prefix.length)
     .trim()
     .split(/ +/g);
   if (message.channel.type === "dm") return;
