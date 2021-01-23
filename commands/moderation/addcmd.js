@@ -15,7 +15,7 @@ module.exports = {
      .setTimestamp()*/
    if (message.author.id != `${message.guild.ownerID}` )
      
-   return message.channel.send("```\n<a:failed:798526823976796161> you do not have permission to use this command,This is only owner.\n```").then(m=>m.delete({timeout:550000}).catch(e=>{}))
+   return message.channel.send("<a:failed:798526823976796161> =>```\n you do not have permission to use this command,This is only owner.\n```").then(m=>m.delete({timeout:550000}).catch(e=>{}))
   // return message.channel.send(emg).then(m=>m.delete({timeout:550000}).catch(e=>{}))
 
 
