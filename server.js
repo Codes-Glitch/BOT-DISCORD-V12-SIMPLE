@@ -21,11 +21,10 @@ const { CanvasSenpai } = require("canvas-senpai");
 const canva = new CanvasSenpai();
 // Run the command loader
 ["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
+  require(`./handlers/${handler}`)(client);
 });
 
 //Events "handler"
-
 
 client.on("ready", () => {
   client.user.setStatus("idle");
@@ -55,22 +54,26 @@ client.on("message", async message => {
   const { MessageEmbed } = require("discord.js");
 
   //START
-
+//  const channel = message.channels.first();
+  if (!message.permissionsFor(message.guild.me).has(["SEND_MESSAGES"]))
+    return message.channel.send(
+      "Unicron doesn't have permissions to that channel, please give Unicron access to that channel for this to work and try again."
+    )
   if (!message.member.hasPermission("ADMINISTRATOR")) {
-   // if (!message.guild.me.hasPermission("SEND_MESSAGES"))
-      if (is_url(message.content) === true) {
-        message.delete();
-        let embed1 = new MessageEmbed()
-          .setTitle("🔒BLOCK LINK🔒")
-          .setDescription(
-            `\`\`\`\nYou can not send link here :/\n\`\`\`\nLink: ${message}\nAuthor: ${message.author}`
-          )
-          .setColor("RED");
-        return message.channel
-          .send(embed1)
-          .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
-        message.delete();
-      }
+    // if (!message.guild.me.hasPermission("SEND_MESSAGES"))
+    if (is_url(message.content) === true) {
+      message.delete();
+      let embed1 = new MessageEmbed()
+        .setTitle("🔒BLOCK LINK🔒")
+        .setDescription(
+          `\`\`\`\nYou can not send link here :/\n\`\`\`\nLink: ${message}\nAuthor: ${message.author}`
+        )
+        .setColor("RED");
+      return message.channel
+        .send(embed1)
+        .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
+      message.delete();
+    }
   }
   let confirm = false;
 
@@ -111,10 +114,8 @@ client.on("messageDelete", function(message, channel) {
     image: message.attachments.first()
       ? message.attachments.first().proxyURL
       : null
-  })
-  
- 
-});
+  });
+}); //<SETUP SETTINGS>
 /*
 client.msgedit = new Map()
 
@@ -149,55 +150,57 @@ client.on('messageEdit', function(message, channel){
       )
       .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
   }
-});*/ //<SETUP SETTINGS>
-client.on("message", async message => {
-  if (message.author.bot) return;
-  if (!message.guild) return;
- if (!message.content.startsWith(prefix)) return;
+});*/ client.on(
+  "message",
+  async message => {
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (!message.content.startsWith(prefix)) return;
 
-  // If message.member is uncached, cache it.
-  if (!message.member)
-    message.member = await message.guild.fetchMember(message);
-  // If message.member is uncached, cache it.
-  if (!message.member)
-    message.member = await message.guild.fetchMember(message);
+    // If message.member is uncached, cache it.
+    if (!message.member)
+      message.member = await message.guild.fetchMember(message);
+    // If message.member is uncached, cache it.
+    if (!message.member)
+      message.member = await message.guild.fetchMember(message);
 
-/*  let Prefix = await db.get(`Prefix_${message.guild.id}_${message.guild.id}`);
+    /*  let Prefix = await db.get(`Prefix_${message.guild.id}_${message.guild.id}`);
   if (!Prefix) Prefix = Default_Prefix;
 
   if (!message.content.startsWith(Prefix)) return;
 */
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(/ +/g);
-  if (message.channel.type === "dm") return;
-  const cmd = args.shift().toLowerCase();
-   if (cmd.length === 0) return;
-  // const msss = db.get(`mss_${message.guild.id}`)
-  let cmdx = db.get(`cmd_${message.guild.id}`);
+    const args = message.content
+      .slice(prefix.length)
+      .trim()
+      .split(/ +/g);
+    if (message.channel.type === "dm") return;
+    const cmd = args.shift().toLowerCase();
+    if (cmd.length === 0) return;
+    // const msss = db.get(`mss_${message.guild.id}`)
+    let cmdx = db.get(`cmd_${message.guild.id}`);
 
-  if (cmdx) {
-   // let cmdy = cmdx.find(x => x.name === args[0]);
-   let cmdy = cmdx.find(x => x.name === cmd);
-    if (cmdy) message.channel.send(cmdy.responce);
-  }
-  /*const db = require("quick.db");
+    if (cmdx) {
+      // let cmdy = cmdx.find(x => x.name === args[0]);
+      let cmdy = cmdx.find(x => x.name === cmd);
+      if (cmdy) message.channel.send(cmdy.responce);
+    }
+    /*const db = require("quick.db");
 
   let cha = message.guild.channels.cache.find(x => x.name === db.get(`help`));
 
  message.channel.send(`Check Channel ${cha || `<a:failed:798526823976796161> Failed to Send` }`)
 */
 
-  let command = client.commands.get(cmd);
-  // If none is found, try to find it by alias
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
+    let command = client.commands.get(cmd);
+    // If none is found, try to find it by alias
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
 
-  // If a command is finally found, run the command
-  if (command) command.run(client, message, args);
-  return addexp(message);
-  // return mes(message);
-});
+    // If a command is finally found, run the command
+    if (command) command.run(client, message, args);
+    return addexp(message);
+    // return mes(message);
+  }
+);
 
 //GONNA USE EVENT HERE
 
