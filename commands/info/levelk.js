@@ -34,6 +34,10 @@ module.exports = {
     if (xp === 0)
       return message.channel.send(`**${user.tag}** is out of the xp`);
 const rank = new canvacord.Rank()
-.setAvatar(message.author.displayAvatarURL({ dy
+.setAvatar(message.author.displayAvatarURL({ dynamic: false, format: 'png'}))
+.setCurrentXP(user.xp)
+.setRequiredXP(level)
+.setStatus(message.member.presence.status)
+.setProgressBar('
 
  }}
