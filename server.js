@@ -48,16 +48,6 @@ function is_url(str) {
   }
 }
 
-function yt(str) {
-  let regexp = /^(https?:\/\/)?(www\.)?(youtu\.(be|io|me|li)|(discordapp|discord)\.com\/invite)\/\w+[a-z]/gi;
-
-  if (regexp.test(str)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
 //STOP
 
 client.on("message", async message => {
@@ -66,8 +56,8 @@ client.on("message", async message => {
 
   //START
 
-  if (!message.member.hasPermission("INISTRATOR")) {
-    if (!message.guild.me.hasPermission("SEND_MESSAGES"))
+  if (!message.member.hasPermission("ADMINISTRATOR")) {
+   // if (!message.guild.me.hasPermission("SEND_MESSAGES"))
       if (is_url(message.content) === true) {
         message.delete();
         let embed1 = new MessageEmbed()
@@ -123,48 +113,8 @@ client.on("messageDelete", function(message, channel) {
       : null
   })
   
-  
-client.on("message", async message => {
-
-  if (message.author.bot) return;
-
-  const { MessageEmbed } = require("discord.js");
-
-  //START
-
-  if (!message.member.hasPermission("INISTRATOR")) {
-
-    if (!message.guild.me.hasPermission("SEND_MESSAGES"))
-
-      if (yt(message.content) === true) {
-
-        message.delete();
-
-        let embed1 = new MessageEmbed()
-
-          .setTitle("🔒BLOCK LINK🔒")
-
-          .setDescription(
-
-            `\`\`\`\nYou can not send link here :/\n\`\`\`\nLink: ${message}\nAuthor: ${message.author}`
-
-          )
-
-          .setColor("RED");
-
-        return message.channel
-
-          .send(embed1)
-
-          .then(m => m.delete({ timeout: 12000 }).catch(e => {}));
-
-        message.delete();
-
-      }
-
-  }
-
-})});
+ 
+});
 /*
 client.msgedit = new Map()
 
