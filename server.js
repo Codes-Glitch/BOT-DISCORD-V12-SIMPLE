@@ -55,11 +55,11 @@ client.on("message", async message => {
 
   //START
 //  const channel = message.channels.first();
-  if (!message.permissionsFor(message.guild.me).has(["SEND_MESSAGES"]))
+ /* if (!message.permissionsFor(message.guild.me).has(["SEND_MESSAGES"]))
     return message.channel.send(
       "Unicron doesn't have permissions to that channel, please give Unicron access to that channel for this to work and try again."
-    )
-  if (!message.member.hasPermission("ADMINISTRATOR")) {
+    )*/
+  if (!message.member.hasPermission("/ADMINISTRATOR")) {
     // if (!message.guild.me.hasPermission("SEND_MESSAGES"))
     if (is_url(message.content) === true) {
       message.delete();
