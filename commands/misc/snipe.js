@@ -35,7 +35,7 @@ module.exports = {
         if (!reaction.message.guild) return; // If the user was reacting something but not in the guild/server, ignore them.
 
         if (reaction.emoji.name === "❌") {
-          message.channel.bulkDelete(1);
+          message.channel.bulkDelete();
         }
       });
       // message.channel.send("If there is a new delete message, you can use this command").then(m=>m.delete({timeout:12000}).catch(e=>{}))

@@ -23,7 +23,7 @@ module.exports = {
   } else if (args[0]) {
     user = message.guild.members.cache.get(args[0]).user;
   } else {
-    user = message.author || message.resolveUser(args[0])
+    user = message.author //|| message.resolveUser(args[0])
 
    }
   

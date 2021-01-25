@@ -5,7 +5,7 @@ module.exports = {
 
   description: "Display the code of the specified command.",
 
-  usage: "<cmd>",
+  usage: "code <category/cmd>",
 
   category: "info",
 
@@ -17,8 +17,8 @@ module.exports = {
       code = fs.readFileSync(`commands/${args[0]}.js`).toString();
     } catch (error) {
       return message.channel.send(
-        `I couldn't find a command called \`${args[0] || "Invalid text"}\`\n
-        How to use Yes it is category/name.js
+        `I couldn't find a command called \`${args[0] || "Invalid cmd"}\`\n
+        How to use Yes it is category/cmd
 `
       );
     }
