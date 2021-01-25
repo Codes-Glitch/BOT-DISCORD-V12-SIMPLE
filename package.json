@@ -30,7 +30,8 @@
     "cleverbot-node": "^0.3.11",
     "wio.db": "^4.0.10",
     "ytdl-core": "^4.4.4",
-    "yt-search": "^2.5.2"
+    "yt-search": "^2.5.2",
+    "canvacord": "^5.0.8"
   },
   "engines": {
     "node": "12.x"

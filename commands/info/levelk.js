@@ -3,6 +3,7 @@ const discord = require("discord.js");
 const { getInfo } = require("../../handlers/xp.js");
 const { MessageEmbed, MessageAttachment} = require("discord.js");
 const { CanvasSenpai } = require("canvas-senpai");
+const { canvacord } = require("canvas-senpai");
 const { Discord } = require("discord.js");
 const canva = new CanvasSenpai();
 
@@ -15,9 +16,9 @@ module.exports = {
   run: (client, message, args, mass) => {
     message.delete();
     const user = message.mentions.users.first() || message.author;
-    let chnnel = message.guild.channels.cache.find(
+  /*  let chnnel = message.guild.channels.cache.find(
       x => x.id === db.get(`level_${message.guild.id}`)
-    );
+    );*/
     if (user.id === client.user.id) {
       //IF BOT
       return message.channel.send("😉 | I am on level 500");
@@ -32,34 +33,7 @@ module.exports = {
     const { level, remxp, levelxp } = getInfo(xp);
     if (xp === 0)
       return message.channel.send(`**${user.tag}** is out of the xp`);
+const rank = new canvacord.Rank()
+.setAvatar(message.author.displayAvatarURL({ dy
 
-    let data = canva.rankcard({
-      link:
-        "https://i.pinimg.com/originals/76/0e/d7/760ed7f52c90870503762ac92db92adc.jpg",
-
-      name: message.author.username,
-
-      discriminator: message.author.discriminator,
-
-      level: level,
-
-      currentXP: remxp,
-
-      fullXP: levelxp,
-
-      avatar: message.author.displayAvatarURL({ format: "png" })
-    });
-
-    const attachment = new MessageAttachment(
-      data,
-
-      "welcome-image.png"
-    );
-
-    message.channel.send(
-      ``,
-
-      attachment
-    );
-  }
-};
+ }}
