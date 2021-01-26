@@ -11,6 +11,7 @@ module.exports = {
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
     let days = Math.floor(hours / 24);
+  //  let ssay = Math.floor(days / 1)
     let sunday = Math.floor(days / 7);
     seconds %= 60;
     minutes %= 60;
