@@ -1,4 +1,10 @@
-const { Client, Collection, discord, Discord, MessageEmbed } = require("discord.js");
+const {
+  Client,
+  Collection,
+  discord,
+  Discord,
+  MessageEmbed
+} = require("discord.js");
 const { config } = require("dotenv");
 const { prefix, token } = require("./config.json");
 const { badwords } = require("./data.json");
@@ -174,7 +180,12 @@ client.on('messageEdit', function(message, channel){
       .trim()
       .split(/ +/g);
     if (message.channel.type === "dm") return;
+
     const cmd = args.shift().toLowerCase();
+    const cooldowns = new Discord.Collection();
+
+    const now = Date.now();
+
     if (cmd.length === 0) return;
     // const msss = db.get(`mss_${message.guild.id}`)
     let cmdx = db.get(`cmd_${message.guild.id}`);
@@ -183,62 +194,51 @@ client.on('messageEdit', function(message, channel){
       // let cmdy = cmdx.find(x => x.name === args[0]);
       let cmdy = cmdx.find(x => x.name === cmd);
       if (cmdy) message.channel.send(cmdy.responce);
+
+      let command = client.commands.get(cmd);
+      // If none is found, try to find it by alias
+      if (!command) command = client.commands.get(client.aliases.get(cmd));
+      cooldowns.set(command.name, new Discord.Collection());
+
+      const timestamps = cooldowns.get(command.name);
+
+      const cooldownAmount = (command.cooldown || 3) * 1000;
+      // If a command is finally found, run the command
+      if (command) command.run(client, message, args);
+      if (!cooldowns.has(command.name)) {
+        if (timestamps.has(message.author.id)) {
+          // if (timestamps.has(message.author.id)) {
+          // ...
+        }
+
+        if (timestamps.has(message.author.id)) {
+          const expirationTime =
+            timestamps.get(message.author.id) + cooldownAmount;
+
+          if (now < expirationTime) {
+            const timeLeft = (expirationTime - now) / 1000;
+
+            return message.reply(
+              `please wait ${timeLeft.toFixed(
+                1
+              )} more second(s) before reusing the \`${command.name}\` command.`
+            );
+          }
+        }
+
+        timestamps.set(message.author.id, now);
+
+        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+        // ...
+      }
+
+      return addexp(message);
+
+      // return mes(message);
     }
-    /*const db = require("quick.db");
-
-  let cha = message.guild.channels.cache.find(x => x.name === db.get(`help`));
-
- message.channel.send(`Check Channel ${cha || `<a:failed:798526823976796161> Failed to Send` }`)
-*/
-    
-    const cooldowns = new Discord.Collection();
-    if (!cooldowns.has(command.name)) {
-
-	cooldowns.set(command.name, new Discord.Collection());
-
-}
-
-const now = Date.now();
-
-const timestamps = cooldowns.get(command.name);
-
-const cooldownAmount = (command.cooldown || 3) * 1000;
-
-if (timestamps.has(message.author.id)) {
-
-	// ...
-
-}
- if (timestamps.has(message.author.id)) {
-
-	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
-	if (now < expirationTime) {
-
-		const timeLeft = (expirationTime - now) / 1000;
-
-		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
-
-	}
-
-} 
-    timestamps.set(message.author.id, now);
-
-setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
- 
-    
-  let command = client.commands.get(cmd);
-    // If none is found, try to find it by alias
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-    // If a command is finally found, run the command
-    if (command) command.run(client, message, args);
-    return addexp(message);
-    // return mes(message);
   }
 );
-
 //GONNA USE EVENT HERE
 
 client.on("guildMemberAdd", async member => {
