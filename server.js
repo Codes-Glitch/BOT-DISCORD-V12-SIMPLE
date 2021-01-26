@@ -169,26 +169,11 @@ client.on('messageEdit', function(message, channel){
 
   if (!message.content.startsWith(Prefix)) return;
 */
-    /*  const args = message.content
+    const args = message.content
       .slice(prefix.length)
       .trim()
-      .split(/ +/g);*/
-    if (message.channel.type === "dm") return;
-
-    const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-    const prefixRegex = new RegExp(
-      `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
-    );
-
-    if (!prefixRegex.test(message.content)) return;
-
-    const [, matchedPrefix] = message.content.match(prefixRegex);
-
-    const args = message.content
-      .slice(matchedPrefix.length)
-      .trim()
       .split(/ +/g);
+    if (message.channel.type === "dm") return;
 
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
