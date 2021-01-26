@@ -1,4 +1,4 @@
-const { Client, Collection, discord, MessageEmbed } = require("discord.js");
+const { Client, Collection, discord, Discord, MessageEmbed } = require("discord.js");
 const { config } = require("dotenv");
 const { prefix, token } = require("./config.json");
 const { badwords } = require("./data.json");
@@ -174,7 +174,6 @@ client.on('messageEdit', function(message, channel){
       .trim()
       .split(/ +/g);
     if (message.channel.type === "dm") return;
-
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
     // const msss = db.get(`mss_${message.guild.id}`)
@@ -191,8 +190,45 @@ client.on('messageEdit', function(message, channel){
 
  message.channel.send(`Check Channel ${cha || `<a:failed:798526823976796161> Failed to Send` }`)
 */
+    
+    const cooldowns = new Discord.Collection();
+    if (!cooldowns.has(command.name)) {
 
-    let command = client.commands.get(cmd);
+	cooldowns.set(command.name, new Discord.Collection());
+
+}
+
+const now = Date.now();
+
+const timestamps = cooldowns.get(command.name);
+
+const cooldownAmount = (command.cooldown || 3) * 1000;
+
+if (timestamps.has(message.author.id)) {
+
+	// ...
+
+}
+ if (timestamps.has(message.author.id)) {
+
+	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+	if (now < expirationTime) {
+
+		const timeLeft = (expirationTime - now) / 1000;
+
+		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+
+	}
+
+} 
+    timestamps.set(message.author.id, now);
+
+setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+ 
+    
+  let command = client.commands.get(cmd);
     // If none is found, try to find it by alias
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 

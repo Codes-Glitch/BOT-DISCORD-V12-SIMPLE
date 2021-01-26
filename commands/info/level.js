@@ -8,6 +8,7 @@ module.exports = {
   name: "level",
   description: "Get the level of author or mentioned",
   usage: "level <user>",
+  cooldown: 10,
   category: "info",
   run: (client, message, args, mass) => {
     message.delete();
