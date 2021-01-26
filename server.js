@@ -193,15 +193,27 @@ client.on('messageEdit', function(message, channel){
       // If none is found, try to find it by alias
       if (!command) command = client.commands.get(client.aliases.get(cmd));
       if (command) command.run(client, message, args);
+if (command.args && !args.length) {
 
+	return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+	let reply = `You didn't provide any arguments, ${message.author}!`;
+	if (command.usage) {
+	reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+		}
+	return message.channel.send(reply);
+	}      
+      
+      
+      
+      
       return addexp(message);
 
       // return mes(message);
-      const cooldowns = new Collection();
+      /*    const cooldowns = new Collection();
 
 if (!cooldowns.has(command.name)) {
 
-	cooldowns.set(command.name, new Discord.Collection());
+	cooldowns.set(command.name, new Collection());
 
 }
 
@@ -224,8 +236,7 @@ if (timestamps.has(message.author.id)) {
 	}
 
 }  
-
-  
+*/
     }
   }
 );
@@ -264,8 +275,6 @@ function url(str) {
 }
 //STOP
 
+//Cooldown
 
-
-//Cooldown 
-
-  client.login(token);
+client.login(token);
