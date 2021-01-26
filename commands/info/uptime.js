@@ -25,7 +25,7 @@ module.exports = {
         "<:slowmode:799034410799595590> TIME BOT ONLINE <:slowmode:799034410799595590>"
       )
       .setDescription(
-        `<a:success:798526789114134548> <@${ddi}> : \n\`Second: ${seconds}\nMinutes: ${minutes}\nHours: ${hours}\nSunday: ${sunday}\``
+        `<a:success:798526789114134548> <@${ddi}> : \n\`Second: ${seconds}\nMinutes: ${minutes}\nHours: ${hours}\nday: ${days}\``
       )
       .setColor("GREEN")
       .setTimestamp();
