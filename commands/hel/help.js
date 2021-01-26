@@ -6,6 +6,7 @@ module.exports = {
     "Get list of all command and even get to know every command detials",
   usage: "help <cmd>",
   cooldown : 5,
+  guildOnly: true,
   category: "help",
   run: async (client, message, args, del) => {
            
