@@ -182,10 +182,6 @@ client.on('messageEdit', function(message, channel){
     if (message.channel.type === "dm") return;
 
     const cmd = args.shift().toLowerCase();
-    const cooldowns = new Discord.Collection();
-
-    const now = Date.now();
-
     if (cmd.length === 0) return;
     // const msss = db.get(`mss_${message.guild.id}`)
     let cmdx = db.get(`cmd_${message.guild.id}`);
@@ -197,42 +193,20 @@ client.on('messageEdit', function(message, channel){
 
       let command = client.commands.get(cmd);
       // If none is found, try to find it by alias
+      const cooldowns = new Collection();
+
+    const now = Date.now();
+
+  
       if (!command) command = client.commands.get(client.aliases.get(cmd));
-      cooldowns.set(command.name, new Discord.Collection());
+      cooldowns.set(command.name, new Collection());
 
       const timestamps = cooldowns.get(command.name);
 
       const cooldownAmount = (command.cooldown || 3) * 1000;
       // If a command is finally found, run the command
       if (command) command.run(client, message, args);
-      if (!cooldowns.has(command.name)) {
-        if (timestamps.has(message.author.id)) {
-          // if (timestamps.has(message.author.id)) {
-          // ...
-        }
-
-        if (timestamps.has(message.author.id)) {
-          const expirationTime =
-            timestamps.get(message.author.id) + cooldownAmount;
-
-          if (now < expirationTime) {
-            const timeLeft = (expirationTime - now) / 1000;
-
-            return message.reply(
-              `please wait ${timeLeft.toFixed(
-                1
-              )} more second(s) before reusing the \`${command.name}\` command.`
-            );
-          }
-        }
-
-        timestamps.set(message.author.id, now);
-
-        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
-        // ...
-      }
-
+    
       return addexp(message);
 
       // return mes(message);
