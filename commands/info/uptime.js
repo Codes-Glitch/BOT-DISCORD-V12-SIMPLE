@@ -21,7 +21,7 @@ module.exports = {
     const ddi = `790937024941129759`;
     const uptime = new MessageEmbed()
       .setTitle(
-        "<:slowmode:799034410799595590> Time BOT ONLINE <:slowmode:799034410799595590>"
+        "<:slowmode:799034410799595590> TIME BOT ONLINE <:slowmode:799034410799595590>"
       )
       .setDescription(
         `<a:success:798526789114134548> <@${ddi}> : \n\`Second: ${seconds}\nMinutes: ${minutes}\nHours: ${hours}\nSunday: ${sunday}\``
