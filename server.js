@@ -12,8 +12,6 @@ const { ping } = require("./ping.json");
 const client = new Client({
   disableEveryone: true
 });
-let cooldown = new Set();
-let cdSeconds = 5;
 // Collections
 //const { mes } = require("./message.js");
 const Cleverbot = require("cleverbot-node");
@@ -193,26 +191,45 @@ client.on('messageEdit', function(message, channel){
 
       let command = client.commands.get(cmd);
       // If none is found, try to find it by alias
-      const cooldowns = new Collection();
-
-    const now = Date.now();
-
-  
       if (!command) command = client.commands.get(client.aliases.get(cmd));
-      cooldowns.set(command.name, new Collection());
-
-      const timestamps = cooldowns.get(command.name);
-
-      const cooldownAmount = (command.cooldown || 3) * 1000;
-      // If a command is finally found, run the command
       if (command) command.run(client, message, args);
-    
+
       return addexp(message);
 
       // return mes(message);
+      const cooldowns = new Collection();
+
+if (!cooldowns.has(command.name)) {
+
+	cooldowns.set(command.name, new Discord.Collection());
+
+}
+
+const now = Date.now();
+
+const timestamps = cooldowns.get(command.name);
+
+const cooldownAmount = (command.cooldown || 3) * 1000;
+
+if (timestamps.has(message.author.id)) {
+
+	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+	if (now < expirationTime) {
+
+		const timeLeft = (expirationTime - now) / 1000;
+
+		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+
+	}
+
+}  
+
+  
     }
   }
 );
+
 //GONNA USE EVENT HERE
 
 client.on("guildMemberAdd", async member => {
@@ -246,4 +263,9 @@ function url(str) {
   }
 }
 //STOP
-client.login(token);
+
+
+
+//Cooldown 
+
+  client.login(token);
